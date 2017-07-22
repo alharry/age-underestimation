@@ -1,0 +1,70 @@
+Study,Author,Year,Order,Genus,Species,Structure,Region,Suffix,n,Freq,Max vertebral age,Min validated,Max validated,Max actual age,Age underestimation,Magnitude min,Magnitude max,Magnitude mean,Method,Method2,Method3,Worked,Captive,Rationale,Comment
+1,Passerotti et al,2014,Lamniformes,Carcharias,Carcharias taurus,Vert-section,NWA,b,8,Annual,22,0,12,34,Yes,11,12,12,Bomb radiocarbon,NA,NA,Yes,No,Phase-shifted C14 signature,
+1,Passerotti et al,2014,Lamniformes,Carcharias,Carcharias taurus,Vert-section,SA,,2,Annual,23,0,14,40,Yes,18,20,19,Bomb radiocarbon,NA,NA,Yes,No,Phase-shifted C14 signature,
+2,Campana et al ,2002,Lamniformes,Isurus,Isurus oxyrinchus,Vert-section,NWA,a,1,Annual,21,0,21,,No,,,,Bomb radiocarbon,NA,NA,Yes,No,,
+2,Campana et al,2002,Lamniformes,Lamna,Lamna nasus,Vert-section,NWA,a,15,Annual,26,0,26,,No,,,,Bomb radiocarbon,NA,NA,Yes,No,,
+3,Smith et al ,2003,Carcharhiniformes,Triakis,Triakis semifasciata,Vert-section,NEP,,52,Annual,25,0,25,,No,,,,Chemical,NA,NA,Yes,No,,Also included 51 samples from Kusher et al (1992) and Smith (1984). Kusher notes that OTC uptake was sufficient in only 36 of 104 specimens
+4,Natanson and Cailliet,1990,Squatiniformes,Squatina,Squatina californica,Vert-section,NEP,,6,Weight,NA,NA,NA,,NA,,,,Chemical,NA,NA,Yes,Yes,,
+5,Wintner and Dudley,2000,Carcharhiniformes,Galeocerdo,Galeocerdo cuvier,Vert-section,SA,,2,Annual,13,1,5,,No,,,,Chemical,NA,NA,Yes,No,,
+6,Harry et al,2013,Carcharhiniformes,Carcharhinus,Carcharhinus sorrah,Vert-section,AUS/NZ,,8,Annual,13,0,0,,Yes,2,2,2,Chemical,NA,NA,Partially,No,Recapture did not form expected number of growth zones. Calcein did not mark pregnant females.,
+6,Harry et al,2013,Carcharhiniformes,Carcharhinus,Carcharhinus tilstoni,Vert-section,AUS/NZ,b,1,Annual,15,0,0,,Yes,3,3,3,Chemical,NA,NA,Yes,No,Recapture did not form expected number of growth zones,
+7,Francis et al,2007,Lamniformes,Lamna,Lamna nasus,Vert-section,AUS/NZ,,11,Annual,38,0,20,65,Yes,4,34,22,Bomb radiocarbon,NA,NA,Yes,No,Phase-shifted C14 signature,
+8,Passerotti et al,2010,Carcharhiniformes,Sphyrna,Sphyrna mokarran,Vert-section,NWA,,2,Annual,42,0,42,,No,,,,Bomb radiocarbon,NA,NA,Yes,No,,
+9,McAuley et al,2006,Carcharhiniformes,Carcharhinus,Carcharhinus plumbeus,Vert-section,AUS/NZ,,22,Annual,25,3,17,,No,,,,Chemical,NA,NA,Yes,No,,
+10,Simpfendorfer et al ,2002,Carcharhiniformes,Carcharhinus,Carcharhinus obscurus,Vert-section,AUS/NZ,,34,Annual,32,0,4,,No,,,,Chemical,NA,NA,Yes,No,,
+11,Natanson et al,2014,Carcharhiniformes,Carcharhinus,Carcharhinus obscurus,Vert-section,NWA,,8,Annual,23,0,11,42,Yes,15,19,17,Bomb radiocarbon,NA,NA,Yes,No,Phase-shifted C14 signature,
+12,Hamaday et al,2014,Lamniformes,Carcharadon,Carcharadon carcharias,Vert-section,NWA,,8,Annual,52,0,44,73,Yes,7,21,14,Bomb radiocarbon,NA,NA,Yes,No,Phase-shifted C14 signature,
+13,Andrews and Kerr,2015,Lamniformes,Carcharadon,Carcharadon carcharias,Vert-section,NEP,,8,Annual,18,0,7,37,Yes,9,20,12.33,Bomb radiocarbon,NA,NA,Yes,No,Phase-shifted C14 signature. Re-analysis of Kerr et al (2006),
+14,Kneebone et al,2008,Carcharhiniformes,Galeocerdo,Galeocerdo cuvier,Vert-section,NWA,,4,Annual,22,0,20,,Maybe,,,,Bomb radiocarbon,NA,NA,Yes,No,"Phase-shift noted in one specimen, attributed to ontogenetic diet and depth changes",
+15,Andrews et al,2011,Carcharhiniformes,Carcharhinus,Carcharhinus plumbeus,Vert-section,NWA,,5,Annual,27,0,10,33,Yes,4,11,8.33,Bomb radiocarbon,Tagging,NA,Yes,No,Phase-shifted C14 signature,Max vertebral age from Hale and Baremore (2013) and max actual age based on tagging
+15,Andrews et al,2011,Carcharhiniformes,Carcharhinus,Carcharhinus plumbeus,Vert-section,NWA,,1,Annual,27,2,12,33,No,,,,Chemical,Tagging,NA,Yes,No,,Max vertebral age from Hale and Baremore (2013) and max actual age based on tagging
+16,Natanson et al,2016,Lamniformes,Alopias,Alopias vulpinus,Vert-section,NWA,,3,Annual,20,0,14,38,Yes,3,18,10.5,Bomb radiocarbon,NA,NA,Yes,No,Phase-shifted C14 signature,
+17,Brown and Gruber,1988,Carcharhiniformes,Negaprion,Negaprion brevirostris,Vert-section,NWA,b,55,Monthly,20,0,8.3,,No,,,,Chemical,NA,NA,Yes,No,,
+18,Chin et al,2013,Carcharhiniformes,Carcharhinus,Carcharhinus melanopterus,Vert-section,AUS/NZ,,11,Annual,15,0,8,,Yes,3,3,3,Chemical,NA,NA,Partially,Yes,Recapture did not form expected number of growth zones,Calcein marks visible in 8 of 11 sharks. Apparent age underestimation in sharks 8-11 years
+19,Natanson et al,2002,Lamniformes,Lamna,Lamna nasus,Vert-section,NWA,b,12,Annual,25,0,11,,No,,,,Chemical,Tagging,NA,Yes,No,,
+20,Parsons,1993,Carcharhiniformes,Sphyrna,Sphyrna tiburo,Vert-section,NWA,a,28,Annual,6,0,6,,No,,,,Chemical,Known age,Tagging,Partially,Yes,,Two individuals did not have annual banding. Four out of five wild caught and recaptured sharks failed to form OTC mark on vertebrae
+21,Holden and Vince,1973,Rajiformes,Raja,Raja clavata,Vert-whole,NEA,,16,Annual,NA,NA,NA,,NA,,,,Chemical,NA,NA,Yes,No,,
+22,Hale and Lowe,2008,Myliobatiformes,Urobatis,Urobatis halleri,Vert-section,NEP,,12,Annual,14,0,12,,No,,,,Chemical,Mass spec,Edge Analysis,Yes,Yes,,Also including data from Hale et al (2006)
+23,Ardizzone et al,2006,Lamniformes,Isurus,Isurus oxyrinchus,Vert-section,NWA,b,8,Annual,31,0,31,,Maybe,,,,Bomb radiocarbon,NA,NA,Yes,No,"Phase-shift noted in one specimen, attributed to methodological error",Possible in one older specimen but attributed to dietary phase lag not age underestimation
+24,Campana et al,2006,Squaliformes,Squalus,Squalus acanthias,Spine-section,NWA,,8,Annual,40,0,25,,No,,,,Bomb radiocarbon,NA,NA,Yes,No,,Includes maximum age from Nammack et al (1985)
+24,Campana et al,2006,Squaliformes,Squalus,Squalus suckleyii,Spine-section,NEP,b,13,Annual,80,0,52,,Maybe,,,,Bomb radiocarbon,NA,NA,Yes,No,"Phase-shift noted in at least one specimen, attributed to methodological error",Maximum age from McFarlane and Beamish (1987)
+24,Campana et al,2006,Squaliformes,Squalus,Squalus acanthias,Spine-section,NEA,b,11,Annual,25,0,25,,No,,,,Bomb radiocarbon,NA,NA,Yes,No,,
+25,Chidlow et al,2007,Orectolobiformes,Orectolobus,Orectolobus hutchinsi,Vert-section,AUS/NZ,,9,Weight,NA,NA,NA,,NA,,,,Chemical,NA,NA,Yes,Yes,,
+26,Sagarese and Frisk,2010,Rajiformes,Leucoraja,Leucoraja erinacea,Vert-section,NWA,,6,Annual,NA,NA,NA,,NA,,,,Chemical,Edge Analysis,NA,Yes,Yes,,
+27,Huveneers et al,2013,Orectolobiformes,Orectolobus,Orectolobus maculatus,Vert-section,AUS/NZ,,32,Weight,NA,NA,NA,,NA,,,,Chemical,NA,NA,Partially,Yes,,
+27,Huveneers et al,2013,Orectolobiformes,Orectolobus,Orectolobus halei,Vert-section,AUS/NZ,,8,Weight,NA,NA,NA,,NA,,,,Chemical,NA,NA,Partially,Yes,,
+27,Huveneers et al,2013,Orectolobiformes,Orectolobus,Orectolobus ornatus,Vert-section,AUS/NZ,,3,Weight,NA,NA,NA,,NA,,,,Chemical,NA,NA,Partially,Yes,,
+28,Kinney et al ,2016,Lamniformes,Isurus,Isurus oxyrinchus,Vert-section,NEP,,30,Biannual/Annual,22,0,10,,No,,,,Chemical,NA,NA,Yes,No,,Main study conducted by Well et al (2013). Maximum age of 22 based on Lyons et al (2015)
+29,Booth et al,2011,Carcharhiniformes,Triakis,Triakis megalopterus,Vert-section,SA,,23,Annual,25,7,25,,No,,,,Chemical,NA,NA,Yes,Yes,,
+30,Natanson et al,2006,Lamniformes,Isurus,Isurus oxyrinchus,Vert-whole,NWA,c,1,Annual,31,17,18,,No,,,,Chemical,NA,NA,Yes,No,,"Maximum age based on Adrizzone et al (2006), conducted concurrently. Additional information on size modes and growth presented but largely dismissed"
+31,Branstetter,1987,Carcharhiniformes,Rhizoprionodon,Rhizoprionodon terranovae,Vert-section,NWA,,7,Annual,6,0,1.5,,No,,,,Chemical,NA,NA,Yes,Yes,,
+32,Gruber and Stout,1983,Carcharhiniformes,Negaprion,Negaprion brevirostris,Vert-half,NWA,a,8,Annual,20,0,1,,No,,,,Chemical,Tagging,Length frequency,Yes,Yes,,Maximum age from Brown and Gruber (1988)
+33,Romine et al,2006,Carcharhiniformes,Carcharhinus,Carcharhinus plumbeus,Vert-section,NEP,,1,Annual,23,1,2,,No,,,,Chemical,NA,NA,Yes,No,,
+34,McPhie and Campana,2009,Rajiformes,Amblyraja,Amblyraja radiata,Vert-section,NWA,,1,Annual,19,0,19,,No,,,,Bomb radiocarbon,NA,NA,Yes,No,,
+34,McPhie and Campana,2009,Rajiformes,Leucoraja,Leucoraja ocellata,Vert-section,NWA,,13,Annual,23,0,23,28,Yes,5,5,5,Bomb radiocarbon,NA,NA,Yes,No,Phase-shifted C14 signature,
+35,Kalish and Johnston,2001,Carcharhiniformes,Galeorhinus,Galeorhinus galeus,Vert-whole,AUS/NZ,a,9,Annual,20,0,14,42,Yes,2,18,9.25,Bomb radiocarbon,NA,NA,Yes,No,Phase-shifted C14 signature,Max age based on recapture at liberty 42 years
+36,Harry et al,2011,Carcharhiniformes,Sphyrna,Sphyrna mokarran,Vert-section,AUS/NZ,,5,Annual,39,2,10,,No,,,,Chemical,NA,NA,Yes,No,,
+37,Pierce and Bennett,2009,Rajiformes,Neotrygon,Neotrygon kuhlii,Vert-section,AUS/NZ,,3,Annual,13,1,5,,Yes,2,2,2,Chemical,NA,NA,Yes,No,Recapture did not form expected number of growth zones,
+38,Frazier et al,2014,Carcharhiniformes,Sphyrna,Sphyrna tiburo,Vert-section,NWA,b,24,Annual,18,0,10.5,,Yes,2,2,2,Chemical,Tagging,Edge Analysis,Yes,No,Recapture did not form expected number of growth zones. Long-term recapture suggested greater longevity than growth zones counts.,
+39,McFarlane and Beamish,1987,Squaliformes,Squalus,Squalus suckleyii,Spine-whole,NEP,a,68,Annual,80,17,70,,No,,,,Chemical,NA,NA,Partially,No,,See also Beamish and McFarlane (1985)
+40,Tucker,1985,Squaliformes,Squalus,Squalus acanthias,Spine-section,NEA,a,41,Annual,25,2,19,,No,,,,Chemical,NA,NA,Partially,No,,"OTC mark visible in only 35% of fish, maximum age from Campana et al (2006)"
+41,Goldman et al,2006,Lamniformes,Carcharias,Carcharias taurus,Vert-section,NWA,a,2,Annual,22,2,5,,No,,,,Chemical,Edge Analysis,NA,Yes,Yes,,Oldest individual from study by Passerotti et al (2014)
+42,Tanaka,1990,Carcharhiniformes,Cephaloscyllium,Cephaloscyllium umbratile,Vert-section,NW Pacific,,10,Not determined,,,,,NA,,,,Chemical,NA,NA,Yes,Yes,,Individuals marked but died after short time in captivity
+42,Tanaka,1990,Orectolobiformes,Orectolobus,Orectolobus japonicus,Vert-section,NW Pacific,,3,Weight,NA,NA,NA,,NA,,,,Chemical,NA,NA,Yes,Yes,,
+43,Skomal and Natanson,2003,Carcharhiniformes,Prionace,Prionace glauca,Vert-section,NWA,,2,Annual,16,2,4,,No,,,,Chemical,NA,NA,Yes,No,,
+44,Natanson,1993,Rajiformes,Raja,Raja erinacea,Vert-section,NWA,,13,Annual,11,5,11,,Maybe,,,,Chemical,NA,NA,Partially,Yes,Annual growth zones may cease when females reproductively active,
+45,Davenport and Stevens,1988,Carcharhiniformes,Carcharhinus,Carcharhinus tilstoni,Vert-whole,AUS/NZ,a,10,Annual,12,0,3,18,Maybe,,,,Chemical,Length frequency,Tagging,Partially,No,Long-term recapture suggested greater longevity than growth zone counts,Also includes later data on recaptures up to 18 years from Stevens et al (2000) and Last and Stevens (2009)
+46,Wintner and Cliff,1999,Lamniformes,Carcharadon,Carcharadon carcharias,Vert-whole,SA,a,1,Annual,38,1,4,,No,,,,Chemical,NA,NA,Yes,No,,Oldest individual from study by Christiansen et al (2016)
+47,Watson and Smale,1999,Squaliformes,Squalus,Squalus megalops,Spine-section,SA,,8,Not determined,,,,,NA,,,,Chemical,NA,NA,Yes,Yes,,Period of captivity too brief
+48,Gallagher and Nolan,1999,Rajiformes,Bathyraja,Bathyraja sp.,Thorn-whole,SWA,,1,Annual,,,,,NA,,,,Chemical,NA,NA,Yes,No,,Single recapture of an undescribed species
+49,Walker et al,2001,Carcharhiniformes,Galeorhinus,Galeorhinus galeus,Vert-whole,AUS/NZ,b,18,Annual,20,0,11,42,Yes,,,,Chemical,NA,NA,Partially,No,Frequency of growth zones in sharks >1400mm (mean age ~11) was significantly < 1,Age range taken from Moulton et al (1992). Synthesis of data including from Officer et al 1997
+49,Walker et al,2001,Carcharhiniformes,Mustelus,Mustelus antarcticus,Vert-whole,AUS/NZ,,68,Annual,16,0,16,,No,,,,Chemical,NA,NA,Partially,No,,Frequency of growth zones not significantly different to 1. Pattern holds for all sizes. Age range taken from Moulton et al (1992). Synthesis of data including from Officer et al (1997)
+50,Ryland and Ajayi,1984,Rajiformes,Raja,Raja clavata,Vert-whole,NEA,,,Annual,,,,,NA,,,,Chemical,NA,NA,Yes,Yes,,No details provided
+51,White et al,2014,Rajiformes,Rhynchobatus,Rhynchobatus spp.,Vert-section,AUS/NZ,,2,Not determined,,,,,NA,,,,Chemical,NA,NA,Yes,No,,
+52,Gutteridge et al,2013,Carcharhiniformes,Loxodon,Loxodon macrorhinus,Vert-section,AUS/NZ,,1,Annual,9,1,2,,No,,,,Chemical,NA,NA,Yes,No,,
+53,Tovar-Avila et al,2008,Heterodontiformes,Heterodontus,Heterodontus portusjacksoni,Spine-section,AUS/NZ,,13,Annual,35,1,18,,No,,,,Chemical,NA,NA,Yes,No,,Maximum age from Tovar-Avila et al (2009)
+54,Izzo et al,2007,Heterodontiformes,Heterodontus,Heterodontus portusjacksoni,Spine-section,AUS/NZ,,12,Not determined,,,,,NA,,,,Chemical,NA,NA,Yes,Yes,,Reported on successful uptake of calcein
+55,Driggers et al,2004,Carcharhiniformes,Carcharhinus,Carcharhinus acronotus,Vert-section,NWA,,1,Annual,20.5,4.5,5.5,,No,,,,Chemical,NA,NA,Yes,Yes,,Maximum age from Frazier et al (2015)
+56,O'Shea et al,2013,Myliobatiformes,Pastinachus,Pastinachus atrus,Vert-section,AUS/NZ,,2,Not determined,,,,,NA,,,,Chemical,NA,NA,Yes,No,,Insufficient time at liberty to be useful for validation
+57,Timmons and Bray,1996,Rajiformes,Rhinobatus,Rhinobatus productus,Vert-whole,NEP,,13,Annual,,,,,NA,,,,Chemical,NA,NA,Yes,Yes,,Uniquely used terramycin for chemical marking. Lengths or ages of marked individuals not given
+58,Christiansen et al,2016,Lamniformes,Carcharadon,Carcharadon carcharias,Vert-section,SA,b,4,Annual,38,0,38,38,No,,,,Bomb radiocarbon,NA,NA,Yes,No,,

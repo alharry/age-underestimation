@@ -1,0 +1,322 @@
+---
+output: 
+  pdf_document:
+    keep_tex: true
+linestretch: 2 
+header-includes:
+    - \fontsize{12}{20}
+    - \usepackage{lineno}
+    - \linenumbers
+    - \linenumberfont
+    - \renewcommand\linenumberfont{\normalfont\small\sffamily}
+    - \pagenumbering{gobble} 
+---
+```{r setup, include = FALSE}
+source("../analysis/setup.R")
+source("../analysis/data prep.R")
+source("../analysis/summary.R")
+```
+
+
+\linenumbers[787]
+
+## Figure legends
+Fig. 1. Bomb carbon dating age validation studies on shark and ray populations showing validated, uncertain and underestimated ages, ordered by increasing maximum age. The number of samples in each study is given at the end of each bar. 
+
+Fig. 2. Chemical marking age validation studies on shark and ray populations showing validated, uncertain and underestimated ages, ordered by increasing maximum age. The number of samples in each study is given at the end of each bar. * the age of some individuals was underestimated, but their revised age did not exceed that of the oldest individual aged.
+
+Fig. 3. Occurrence and magnitude of age underestimation in `r nrow(dataIND)` individuals from `r Underestimate[1,1]` bomb carbon dating age validation studies. (a) Plot of relative age (Age/$A_{Max}$) against relative length (Length/$L_\infty$), size of points denotes the discrepancy between true and apparent age ($\Delta$ Age). (b) and (c) are logistic regression analyses modelling the probability of age underestimation as a function of relative length and age, respectively. White points in (b) and (c) were excluded from statistical analysis. NEP, northeast Pacific; NWA, northwest Atlantic; SA, South Africa. 
+
+Fig. 4. Hypothesised effects and implications of age underestimation on growth and mortality, illustrated with simulated data for New Zealand porbeagle sharks (Francis *et al* 2007). (a) The growth curve asymptote is effectively truncated when older individuals are under-aged, and this may result in a steeper curve with biased parameters. (b) Assuming age underestimation is a function of length, faster-growing individuals will be affected at a younger age than slower-growing individuals. (c) The apparent loss of age structure due to age underestimation may be inadvertently attributed to or indistinguishable from the effects of fishing. (d) Comparison of true $A_{Max}$ = 65 years versus apparent $A_{Max}$ = 35 years in population projection from a simple, density-independent demographic analysis assuming Hoenig mortality (see Supplementary Material for additional information). 
+\newpage
+
+##Figures
+\nolinenumbers
+
+
+\
+```{r fig1, fig.height = 3.5, fig.width = 5.5}
+data2 <- data %>% tbl_df() %>%
+  select(Study, Region, G, spp, Suffix, Method, Min.validated, 
+  Max.validated, Max.vertebral.age, Max.actual.age, n, Freq) %>%
+  filter(!is.na(Max.validated), !is.na(Max.validated), !is.na(Min.validated)) %>%
+  mutate(Max.overall = pmax(Max.vertebral.age, Max.actual.age, na.rm = T)) %>%
+  mutate(Study = factor(paste(G, ". ", spp, " (", Region, Suffix, ")", sep=""))) %>%
+  mutate(Study = factor(Study, unique(Study[c(order(Max.overall, decreasing = T))]))) %>%
+  mutate(Label = factor(paste("paste(italic(\"", G, ". ", spp, "\"), \" ", Region, "\"^\"", Suffix, "\")", sep = ""))) %>%
+  mutate(Label = factor(Label, unique(Label[c(order(Max.overall, decreasing = T))]))) %>%
+  mutate(pre = Min.validated) %>%
+  mutate(validated = Max.validated - Min.validated) %>%
+  mutate(post = Max.vertebral.age - Max.validated) %>%
+  mutate(under = Max.actual.age - Max.vertebral.age) %>%
+  select(- Min.validated, - Max.validated, - Region, - Max.overall, - G, - spp, - Suffix) %>%
+  gather(key = Type, value = years, - Study, - Method, - Max.vertebral.age, - Max.actual.age, - n, - Freq, - Label) %>%
+  mutate(Max.actual.age = ifelse(is.na(Max.actual.age), Max.vertebral.age, Max.actual.age)) %>%
+  mutate(Type = mapvalues(Type, from = c("post", "pre", "under", "validated"),
+  to = c("post", "Uncertain", "Underestimated", "Validated"))) %>%
+  mutate(Type = factor(Type, levels = rev(c("Validated", "post", "Underestimated","Uncertain")))) %>%
+  mutate(n = ifelse(Type == "Uncertain", n, NA))
+
+  labs <- filter(data2, Method == "Bomb radiocarbon") %>% select(Label) %>% droplevels()
+  labs <- levels(labs$Label)
+  labs <- parse(text = labs)
+
+p <- ggplot(filter(data2, Method == "Bomb radiocarbon"), aes(x = Study, y = years, group = Type)) +
+  geom_bar(aes(fill = Type), stat = "identity") +
+  geom_text(aes(x = Study, y = Max.actual.age + 5, label = n)) +
+  scale_x_discrete("", labels = labs) +
+  scale_fill_manual(breaks = c("Uncertain", "Validated", "Underestimated"),
+  values = c("#3182bd", "#ef8a62", "#3182bd", "#9ecae1"),
+  guide = guide_legend(title = NULL)) +
+  coord_flip() + ylab("Age (years)") +  theme_grey(base_family = "Arial Narrow") +
+  theme(panel.grid.major.y = element_blank(), legend.position = c(0.7, 0.825), axis.line = element_line(size = 0.15))
+
+p
+```
+
+Fig 1.  
+\newpage
+```{r fig2, fig.height = 5.95, fig.width = 6}
+data2 <- data %>% tbl_df() %>%
+  select(Study, Region, G, spp, Suffix, Method, Min.validated, Max.validated, Max.vertebral.age, Max.actual.age, n, Freq) %>%
+  filter(!is.na(Max.validated), !is.na(Max.validated), !is.na(Min.validated)) %>%
+  mutate(Star = ifelse(Study %in% c(6, 18, 37, 38), "*", " ")) %>%
+  mutate(Max.overall = pmax(Max.vertebral.age, Max.actual.age, na.rm = T)) %>%
+  mutate(Study = factor(paste(G, ". ", spp, " (", Region, Suffix, ")", sep = ""))) %>%
+  mutate(Study = factor(Study, unique(Study[c(order(Max.overall, decreasing = T))]))) %>%
+  mutate(Label = factor(paste("paste(italic(\"", G, ". ", spp, "\"), \" ", Region, "\"^\"", Suffix, "\")", sep = ""))) %>%
+  mutate(Label = factor(Label, unique(Label[c(order(Max.overall, decreasing = T))]))) %>%
+  mutate(pre = Min.validated) %>%
+  mutate(validated = Max.validated - Min.validated) %>%
+  mutate(post = Max.vertebral.age - Max.validated) %>%
+  mutate(under = Max.actual.age - Max.vertebral.age) %>%
+  select(- Min.validated, - Max.validated, - Region, - Max.overall, - G, - spp, - Suffix) %>%
+  gather(key = Type, value = years, - Study, - Method, - Max.vertebral.age, - Max.actual.age, - n, - Freq, - Label, - Star) %>%
+  mutate(Max.actual.age = ifelse(is.na(Max.actual.age), Max.vertebral.age, Max.actual.age)) %>%
+  mutate(Type = mapvalues(Type, from = c("post", "pre", "under", "validated"),
+  to = c("post", "Uncertain", "Underestimated", "Validated"))) %>%
+  mutate(Type = factor(Type, levels = rev(c("Uncertain", "Validated", "post", "Underestimated")))) %>%
+  mutate(n = ifelse(Type == "Uncertain", paste(n, Star, sep=" "),NA))
+
+  labs <- filter(data2, Method == "Chemical") %>% select(Label) %>% droplevels()
+  labs <- levels(labs$Label)
+  labs <- parse(text = labs)
+
+p <- ggplot(filter(data2, Method == "Chemical"), aes(x = Study, y = years, group = Type)) +
+  geom_bar(aes(fill = Type), stat = "identity") +
+  geom_text(aes(x = Study, y = Max.actual.age + 5, label = n), family = "Arial Narrow") +
+  scale_x_discrete("", labels = labs) +
+  scale_fill_manual(breaks = c("Uncertain", "Validated", "Underestimated"),
+  values = c("#ef8a62", "#3182bd", "#9ecae1", "#3182bd"),
+  guide = guide_legend(title = NULL)) +
+  coord_flip() + ylab("Age (years)") +
+  theme_grey(base_family = "Arial Narrow") +
+  theme(panel.grid.major.y = element_blank(), legend.position = c(0.7,0.9), axis.line = element_line(size = 0.15))
+
+p
+```
+
+Fig 2.  
+\newpage
+```{r fig3, fig.height = 7.5, fig.width = 7.5}
+
+p <- ggplot(dataIND, aes(x = Age, y = Length, size = Agedif2, col = Species)) +
+  geom_point(alpha = 0.70) +
+  scale_size(trans="identity", breaks = c(0, 5, 10, 20, 30), name = expression(paste(Delta, " Age"))) +
+  ylab(expression(paste("Relative Length (Length"/italic("L")[infinity], " )"))) +
+  xlab(expression(paste("Relative Age (Age"/italic("A")[Max], ")"))) +
+  theme_grey(base_family = "Arial Narrow") +
+  theme(axis.line = element_line(size = 0.15), legend.box="horizontal") +
+  ggtitle("(a)") + theme(plot.title = element_text(hjust = 0, size = rel(1)), legend.text = element_text(face = "italic"))
+
+p1 <- ggplot(filter(dataIND, Agedif < 3), aes(x = Length, y = Binary)) +
+  geom_point() +
+  geom_point(data = filter(dataIND,Agedif > 3), aes(x = Length, y = Binary), fill = "white", shape = 21) +
+  geom_smooth(method = "glm", method.args = list(family = "binomial"), col = "grey55") +
+  xlab("Relative length") + ylab("Pr(Occurrence)") +
+  theme_grey(base_family = "Arial Narrow") +
+  theme(axis.line = element_line(size = 0.15)) +
+  ggtitle("(b)") + theme(plot.title = element_text(hjust = 0, size = rel(1)))
+
+p2<-ggplot(filter(dataIND, Agedif < 3), aes(x = Age, y = Binary)) +
+  geom_point() +
+  geom_point(data = filter(dataIND, Agedif > 3), aes(x = Age, y = Binary), fill = "white", shape = 21) +
+  geom_smooth(method = "glm", method.args = list(family = "binomial"), col = "grey55") +
+  xlab("Relative Age") + ylab("") +
+  theme_grey(base_family = "Arial Narrow") +
+  theme(axis.line = element_line(size = 0.15)) +
+  ggtitle("(c)") + theme(plot.title = element_text(hjust = 0, size = rel(1)))
+
+lay <- rbind(c(1, 1, 1, 1, 1, 1),
+             c(1, 1, 1, 1, 1, 1),
+             c(1, 1, 1, 1, 1, 1),
+             c(2, 2, 2, 3, 3, 3),
+             c(2, 2, 2, 3, 3, 3))
+
+plots <- list(p, p1, p2)  
+
+grid.arrange(grobs = list(p, p1, p2), layout_matrix = lay)
+```
+
+Fig 3.  
+\newpage
+```{r fig4, fig.height = 8, fig.width = 8}
+# Quick simulation
+set.seed(1)
+# Parameters
+Amax = 65
+Linf = 1822
+t0 = - 4.75
+K = 0.112
+n0 <- 1000
+S50 <- 1500
+A50 <- 5
+M <- 4.3/65
+sigma <- 50
+Amat50 <- 16.5
+Freq = 1
+pups = 3.85
+
+a <- seq(0,Amax)
+n <- c(n0, round(cumprod(rep(exp(-M), length(a) - 1)) * n0))
+
+# Initialise length and age distributions for simulated age length data
+data<-data_frame(`True Age` = unlist(mapply(rep, a, n))) %>%
+ mutate(Length = Linf * (1 - exp(-K * (`True Age` - t0))) + rnorm(sum(n), 0, sigma)) %>%
+ mutate(Selectivity = 1 - (Length^-5)/(S50^-5 + Length^-5)) %>%
+ mutate(`Apparent Age` = ifelse(`True Age` < 20, `True Age`, 20 +
+ (31.9 - 20) * (1 - exp(-0.076 * (`True Age` - 20))))) %>%
+ sample_n(20, weight = Selectivity, replace = FALSE) %>%
+ gather(key = AgeGroup, value = Age, -Selectivity, -Length) %>%
+ mutate(AgeGroup = as.factor(AgeGroup)) %>%
+ mutate(AgeGroup = relevel(AgeGroup, "True Age"))
+
+# Fit 'true' and 'apparent' growth models
+true <- nls(Length ~ L0 + (Linf - L0) * (1 - exp(-k * Age)), data = filter(data, AgeGroup %in% "True Age"),
+ start = list(Linf = 200, k = 0.1, L0 = 750))
+
+apparent <- nls(Length ~ L0 + (Linf - L0) * (1 - exp(-k * Age)), data = filter(data, AgeGroup %in% "Apparent Age"),
+ start = list(Linf = 200, k = 0.1, L0 = 750))
+
+preds <- data.frame(Length = c(predict(true, newdata = list(Age = 0:max(data$Age))), predict(apparent, newdata =
+  list(Age = 0:max(data$Age)))), Age = rep(0:max(data$Age), 2), AgeGroup = c(rep("True Age",
+  length(0:max(data$Age))), rep("Apparent Age", length(0:max(data$Age))))) %>%
+  mutate(AgeGroup=as.factor(AgeGroup))%>% mutate(AgeGroup=relevel(AgeGroup,"True Age"))
+
+p <- ggplot(data, aes(x = Age, y = Length, colour = AgeGroup)) + geom_point() +
+  geom_line(data = preds, aes(x = Age, y = Length, colour = AgeGroup, linetype = AgeGroup)) +
+  scale_linetype_manual(name = NULL, values = c("solid", "dashed")) +
+  scale_colour_manual(name = NULL, values = c("#3182bd", "#ef8a62")) +
+  ylim(900, 2000) + theme_grey(base_family="Arial Narrow") +
+  theme(axis.line = element_line(size = 0.15)) +
+  theme(legend.position = c(0.8, 0.2)) + xlim(0, 65) +
+  xlab("Age (yrs)") + ylab("Length (mm)") +
+  ggtitle("(a)") + theme(plot.title = element_text(hjust = 0, size = rel(1)))
+
+# Now simulate age structures
+data2 <- data_frame(`True Age` = unlist(mapply(rep, a, n))) %>%
+      mutate(`True Age` = ifelse(`True Age`== 0, 0.0001, `True Age`)) %>% 
+      mutate(Length = Linf*(1 - exp(-K*(`True Age` - t0))) + rnorm(sum(n), 0, sigma)) %>%
+      mutate(Selectivity = 1 - (`True Age`^-5)/(A50^-5 + `True Age`^-5)) %>%
+      na.omit()%>%
+      mutate(`Apparent Age` = ifelse(`True Age` < 20, `True Age`, 
+                                   20 + (31.9 - 20)*(1 - exp(-0.076*(`True Age` - 20))))) %>%
+      sample_n(300, weight = Selectivity, replace = FALSE) %>%
+      gather(key = AgeGroup, value = Age, -Selectivity, -Length) %>%
+      mutate(AgeGroup = as.factor(AgeGroup)) %>%
+      mutate(AgeGroup = relevel(AgeGroup, "True Age"))
+
+p1 <- ggplot(data2, aes(x = Age, fill = AgeGroup)) + geom_histogram(bins = 30) +
+  theme(legend.position = c(0.78, 0.8)) +
+  scale_fill_manual(name = NULL, values = c("#3182bd", "#ef8a62")) +
+  theme(axis.line = element_line(size = 0.15)) +
+  xlim(0, 65) +
+  xlab("Age (yrs)") + ylab("Numbers") +
+  ggtitle("(c)") + theme(plot.title = element_text(hjust = 0, size = rel(1)))
+
+# Now do a demographic analysis using Leslie matrix
+leslie.matrix <- function(Amax, Amat50, pups, rcyc){
+  Age<-seq(0, Amax, 1)
+  k <- length(Age)
+  M <- 4.3/Amax
+  px <- exp(-M)
+  fx <- array(0, k)
+  fx[which(Age >= (Amat50 + (rcyc - 1)))] = pups/2/rcyc
+  fx <- fx * px
+  A <- matrix(0, nrow = k, ncol = k)
+  A[row(A) == col(A) + 1] <- px[-k]
+  A[1, ] <- fx
+return(A)
+}
+
+# From demogR (no longer hosted on CRAN)
+#`calc.ro` <-function(A,N.out=FALSE){
+  # Net reproduction number from Leslie matrix
+  # assumes age-structured Leslie matrix
+#  k <- dim(A)[1]
+#  T <- A
+#  T[1,] <- 0                     # matrix of transitions
+#  F <- matrix(0,nr=k,nc=k)
+#  F[1,] <- A[1,]                 # matrix of births
+#  N <- solve(diag(k)-T)          # fundamental matrix
+#  ev <- eigen(F%*%N)
+#  imax <- which(ev$values==max(Re(ev$values)))
+#  ro <- ev$values[imax]          # same as FN[1,1]
+
+#  if(N.out) out <- list(ro, N)
+#  else out <- ro
+
+#  out
+#}
+#
+
+# Leslie matrices
+A <- leslie.matrix(Amax, Amat50, pups, Freq)
+A1 <- leslie.matrix(38, Amat50, pups, Freq)
+
+# Lambda
+true.lambda <- eigen(A)$values[1] %>% Re
+apparent.lambda <- eigen(A1)$values[1] %>% Re
+
+# Population doubling time
+true.t2 <- log(2, true.lambda)
+apparent.t2 <- log(2, apparent.lambda)
+
+data3 <- data_frame(Year = 0:ceiling(max(c(true.t2, apparent.t2))), 
+  `True Age` = cumprod(c(1, rep(true.lambda, ceiling(max(c(true.t2, apparent.t2)))))),
+  `Apparent Age` = cumprod(c(1, rep(apparent.lambda, ceiling(max(c(true.t2, apparent.t2)))))))%>%
+   gather(value = `Population Size`, key = AgeGroup, -Year) %>%
+   mutate(AgeGroup = relevel(as.factor(AgeGroup), "True Age")) %>%
+   mutate(AgeGroup = mapvalues(AgeGroup, from = c("True Age", "Apparent Age"), to = c("65 years", "38 years")))
+
+p2 <- ggplot(data3, aes(x = Year, y = `Population Size`, colour = AgeGroup)) + geom_line() +
+  guides(colour = guide_legend(title = expression(paste(italic("A")[Max])))) +
+  theme(legend.position = c(0.2, 0.8)) +
+  scale_colour_manual(name = NULL, values = c("#3182bd", "#ef8a62")) +
+  theme(axis.line=element_line(size = 0.15)) +
+  ylab("Relative population size") +
+  ggtitle("(d)") + theme(plot.title = element_text(hjust = 0, size = rel(1)))
+
+
+kvar <- seq(0.05, 0.177, 0.025)
+L0 = 751.7045
+VB <- Vectorize(function(k){L0 + (Linf - L0)*(1 - exp(-k * a))})
+Ages <- data.frame(VB(kvar))
+names(Ages) = kvar
+Ages$age = a
+Ages <- gather(Ages, key=K, value= length, -age) %>%
+  mutate(Underestimate = ifelse(length > 0.88 * Linf, "Affected ages", "Unaffected ages"))
+
+p3 <- ggplot(Ages, aes(x = age, y = length, group = K, colour = Underestimate)) +
+  geom_point(size = 0.5) + geom_line(size = 0.5) + theme(legend.position = c(0.76, 0.2)) +
+  xlab("Age (yrs)") + ylab("Length (mm)") +
+  scale_colour_manual(name = NULL, values = c("#3182bd", "#ef8a62")) +
+  theme(axis.line = element_line(size = 0.15)) +
+  ggtitle("(b)") + theme(plot.title = element_text(hjust = 0, size = rel(1)))
+
+
+grid.arrange(p, p3, p1, p2, nrow = 2)
+```
+
+Fig 4.  
+

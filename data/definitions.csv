@@ -1,0 +1,7 @@
+Term,Description,NZ Porbeagle
+Maximum validated age,"The oldest individual for which growth zones have been validated. Or, where age underestimation is reported, the age to which growth zone counts are seemingly valid",20 years
+Apparent longevity,The oldest individual based on unvalidated growth zone counts,38 years
+True longevity,"The minimum longevity of the species where age has been shown to be underestimated, and where it exceeds maximum apparent age",65 years
+Validated ages,The ages over which growth zones have been confirmed to be a reliable indicator of age,0 - 20 years
+Uncertain ages,"Any ages for which growth zones have yet to be validated. Also, where age underestimation occurs, the ages between the maximum validated age and the apparent longevity, which are effectively uncertain unless age underestimation is corrected for",20 - 38 years
+Underestimated ages,The difference between true longevity and apparent longevity,38 - 65 years

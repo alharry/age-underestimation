@@ -1,0 +1,83 @@
+---
+output: 
+  pdf_document:
+    keep_tex: true
+linestretch: 2 
+csl: "../references/fish-and-fisheries.csl"
+bibliography: "../references/Age underestimation extra.bib"
+header-includes:
+    - \pagenumbering{gobble} 
+nocite: |
+  @andrews_bomb_2011
+  @andrews_validated_2015
+  @ardizzone_application_2006
+  @beamish_annulus_1985
+  @booth_age_2011
+  @branstetter_age_1987
+  @brown_age_1988
+  @campana_bomb_2002
+  @campana_bomb_2006
+  @chidlow_variable_2007
+  @chin_validated_2013
+  @christiansen_using_2016
+  @davenport_age_1988
+  @driggers_age_2004
+  @francis_age_2007
+  @frazier_longevity_2014
+  @frazier_validated_2014
+  @gallagher_novel_1999
+  @goldman_re-examination_2006
+  @gruber_biological_1983
+  @gutteridge_life-history_2013
+  @hale_age_2008
+  @hale_age_2013
+  @hamady_vertebral_2014
+  @harry_age_2013
+  @harry_life_2011
+  @holden_age_1973
+  @huveneers_reproductive_2007
+  @izzo_incorporation_2007
+  @kalish_determination_2001
+  @kerr_investigations_2006
+  @kinney_oxytetracycline_2016
+  @kneebone_using_2008
+  @kusher_validated_1992
+  @lyons_insights_2015
+  @mcauley_validated_2006
+  @mcfarlane_validation_1987
+  @mcphie_bomb_2009
+  @moulton_age_1992
+  @nammack_life_1985
+  @natanson_vertebral_1990
+  @natanson_validated_2014
+  @natanson_analysis_2016
+  @natanson_validated_2006
+  @natanson_validated_2002
+  @natanson_effect_1993
+  @officer_captive_1997
+  @oshea_growth_2013
+  @parsons_age_1993
+  @passerotti_maximum_2014
+  @passerotti_age_2010
+  @pierce_validated_2009
+  @romine_age_2006
+  @ryland_growth_1984
+  @sagarese_investigation_2010
+  @simpfendorfer_validated_2002
+  @skomal_age_2003
+  @smith_age-validation_2003
+  @smith_timing_1984
+  @tanaka_age_1990
+  @timmons_age_1997
+  @tovar-avila_dorsal-fin_2008
+  @tovar-avila_assessing_2009
+  @tucker_age_1985
+  @walker_age_2001
+  @watson_age_1999
+  @wells_age_2013
+  @white_age_2014
+  @wintner_age_1996
+  @wintner_age_2000
+---
+
+## Complete reference list

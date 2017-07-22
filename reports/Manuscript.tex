@@ -1,0 +1,1610 @@
+\documentclass[]{article}
+\usepackage{lmodern}
+\usepackage{setspace}
+\setstretch{2}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\hypersetup{unicode=true,
+            pdftitle={Evidence for systemic age underestimation in shark and ray ageing studies},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+%%% Use protect on footnotes to avoid problems with footnotes in titles
+\let\rmarkdownfootnote\footnote%
+\def\footnote{\protect\rmarkdownfootnote}
+
+%%% Change title format to be more compact
+\usepackage{titling}
+
+% Create subtitle command for use in maketitle
+\newcommand{\subtitle}[1]{
+  \posttitle{
+    \begin{center}\large#1\end{center}
+    }
+}
+
+\setlength{\droptitle}{-2em}
+  \title{Evidence for systemic age underestimation in shark and ray ageing
+studies}
+  \pretitle{\vspace{\droptitle}\centering\huge}
+  \posttitle{\par}
+\subtitle{Systemic age underestimation of cartilaginous fishes\\
+Effects of systemic age underestimation in cartilagnious fishes}
+  \author{Alastair Varley Harry\\
+Centre for Sustainable Tropical Fisheries and Aquaculture \& College of
+Science and Engineering, James Cook University, Townsville, QLD, 4811,
+Australia\\
+\href{mailto:alastair.harry@gmail.com}{\nolinkurl{alastair.harry@gmail.com}}\\
+\emph{Running title: Age underestimation in sharks and rays}}
+  \preauthor{\centering\large\emph}
+  \postauthor{\par}
+  \date{}
+  \predate{}\postdate{}
+
+\fontsize{12}{20}
+\usepackage{lineno}
+\linenumbers
+\linenumberfont
+\renewcommand\linenumberfont{\normalfont\small\sffamily}
+\pagenumbering{gobble}
+
+\begin{document}
+\maketitle
+
+\newpage
+
+\subsubsection{Abstract}\label{abstract}
+
+Numerous studies have now demonstrated that the most common method of
+ageing sharks and rays, counting growth zones on calcified structures,
+can underestimate true age. I reviewed bomb carbon dating (n=15) and
+fluorochrome chemical marking (n=44) age validation studies to
+investigate the frequency and magnitude of this phenomenon. Age was
+likely to have been underestimated in nine of 29 genera and 30\% of the
+53 populations studied, including 50\% of those validated using bomb
+carbon dating. Length and age were strongly significant predictors of
+occurrence, with age typically underestimated in larger and older
+individuals. These characteristics suggest age underestimation is likely
+a systemic issue associated with the current methods and structures used
+for ageing. Where detected using bomb carbon dating, growth zones were
+reliable up to 88\% of asymptotic length (\(L_\infty\)) and 41\% of
+maximum age (\(A_{Max}\)). The maximum magnitude of age underestimation,
+\(\Delta_{Max}\), ranged from five to 34 years, averaging 18 years
+across species. Current perceptions of shark and ray life histories are
+informed to a large extent by growth studies that assume calcified
+ageing structures are valid throughout life. The widespread age
+underestimation documented here shows this assumption is frequently
+violated, with potentially important consequences for conservation and
+management. In addition to leading to an underestimation of longevity,
+the apparent loss of population age structure associated with it may
+unexpectedly bias growth and mortality parameters. Awareness of these
+biases is essential given shark and ray population assessments often
+rely exclusively on life history parameters derived from ageing studies.
+
+Keywords: age validation; bomb carbon dating; chondrichthyes;
+fluorochrome marking; life history; longevity
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+\subsection{Introduction}\label{introduction}
+
+The credibility of fish age estimates derived from counts of concentric
+growth zones on calcified structures relies on validating the temporal
+periodicity of formation over the lifespan of the species (Beamish and
+Mcfarlane 1983; Campana 2001). This basic tenet underlies a substantial
+amount of modern fisheries science including any stock assessment that
+relies on ages derived from these methods, ranging from simple
+equilibrium methods such as catch curves or per-recruit analyses to
+integrated population dynamics models (Maunder and Punt 2013). Age is
+also used in many qualitative risk-based methods (Patrick \emph{et al.}
+2010; Hobday \emph{et al.} 2011) and measures of intrinsic vulnerability
+(Dulvy \emph{et al.} 2004; Cortés 2016), ultimately informing management
+strategies for sustainable exploitation and conservation.
+
+In chondrichthyan fishes (hereafter ``sharks and rays''), where ageing
+methodology developed at a much slower pace than teleosts, the first
+concerted efforts to determine age (Prince and Pulos 1983; Cailliet
+\emph{et al.} 1986) coincided with a renewed focus on age validation
+across the wider discipline (Beamish and Mcfarlane 1983). The many
+reviews on shark and ray ageing have repeatedly emphasized the
+importance of validation to practitioners (Cailliet \emph{et al.} 1986,
+2006; Cailliet 1990, 2015; Cailliet and Goldman 2004; Goldman \emph{et
+al.} 2012). Accordingly, validation has become an integral and expected
+part of most studies, particularly when using the most common method of
+counting growth zones on thin sections of vertebrae or spines.
+
+Within the past two decades global ageing of shark and ray populations
+has increased rapidly, in parallel with attempts by governments to
+implement policies of fisheries management and biodiversity conservation
+to meet international commitments (Fischer \emph{et al.} 2012).
+Operationalising these policies invariably requires the assessment of
+fishing impacts on populations. This has major implications for shark
+and ray species, of which an estimated one quarter are threatened by
+overfishing (Dulvy \emph{et al.} 2014). In practice, it has meant more
+regular stock assessments on target species, and risk assessments on
+non-target components of the catch including bycatch and threatened
+species. With greater numbers and diversity of sharks and rays being
+aged to support these assessments, corresponding studies have
+successfully validated part or all of the lifespan in a growing number
+of species (Cailliet 2015).
+
+Yet the increasing attempts at validating growth zones have not always
+yielded successful or expected results. One issue that has become
+increasingly apparent is that of age underestimation, a phenomenon that
+appears to result from growth zones ceasing to form or becoming
+unresolvable or unreliable beyond a certain size or age. The first
+detailed account of age underestimation was in New Zealand porbeagle
+sharks (\emph{Lamna nasus}, Lamnidae) (Francis \emph{et al.} 2007).
+Using bomb radiocarbon dating, levels of \(\Delta^{14}\textup{C}\) radio
+isotopes were found to be `phase-shifted' relative to reference
+chronologies. This implied that some sharks were more than twice as old
+as originally thought and that growth zones were only reliable in
+individuals up to 20 years old. Similar phase-shifts, which have also
+been termed `missing time', have now been reported in several other
+species studied using bomb carbon dating, including for populations
+where well-established and even previously validated ageing protocols
+existed (Andrews \emph{et al.} 2011; Passerotti \emph{et al.} 2014).
+
+Age underestimation is not only limited to bomb carbon dating and direct
+evidence has also been found using other age validation techniques such
+as chemical marking. This includes cases where recaptured individuals
+failed to deposit expected annual growth increments after several years
+at liberty (Chin \emph{et al.} 2013; Harry \emph{et al.} 2013). Further
+circumstantial evidence that growth zone counts underestimate true
+longevity is apparent from some long-term tagging studies, most
+strikingly in the school shark (\emph{Galeorhinus galeus}, Triakidae)
+where tag recaptures of up to 42 years at liberty are more than double
+the highest age based on growth zone counts (Moulton \emph{et al.} 1992;
+Francis \emph{et al.} 2007).
+
+The full extent of age underestimation in shark and ray ageing studies
+is unknown, and its implications have not been investigated. McPhie and
+Campana (2009) suggest that improper age assignment due to age
+underestimation in skates could have potentially severe management
+implications. Chin \emph{et al.} (2013) state that the underestimation
+of longevity would impact demographic analyses. Noting the increasing
+prevalence in long-lived species, Natanson \emph{et al.} (2014)
+questioned the value of vertebral ageing. Despite these concerns, the
+\emph{a priori} assumption that annual growth zones form throughout life
+persists (Cailliet and Goldman 2004; Francis \emph{et al.} 2007;
+Passerotti \emph{et al.} 2014). In light of the mounting evidence for
+age underestimation there is a need to re-examine this assumption.
+
+To investigate this issue I reviewed two common approaches for age
+validation; chemical marking and bomb carbon dating. Fluorescent dyes
+such as oxytetracycline (OTC) and calcein have successfully been used to
+mark the calcified structures of tagged and recaptured or captive sharks
+and rays since the 1970s (Holden and Vince 1973). The technique involves
+injecting a fluorescent marker into the muscle or body cavity of the
+fish that is then rapidly incorporated into calcified structures
+providing a permanent record of when the individual was caught (Izzo
+\emph{et al.} 2007). The use of bomb carbon dating is more recent, but
+has been applied to sharks and rays since the 2000s (Campana \emph{et
+al.} 2002). This method involves comparing \(\Delta^{14}\textup{C}\)
+radio isotope levels in growth zones of unknown age with known-age
+reference chronologies (Kalish 1993). The rapid increase in
+\(\Delta^{14}\textup{C}\) in marine dissolved inorganic carbon that
+occurred globally as a result of nuclear testing during the late 1950s
+is preserved as a distinct signature in calcified tissues of organisms
+alive during this period, allowing age estimates to be corroborated.
+These methods were chosen as they are generally considered to be the
+most robust methods for validating periodicity of growth zone deposition
+in sharks and rays (Goldman \emph{et al.} 2012) and marine organisms
+more generally (Campana 2001). While the two techniques differ
+considerably in their applications and are subject to a range of
+assumptions (Campana 1999), they are nonetheless the most likely to
+detect age underestimation.
+
+In reviewing evidence for age underestimation I (1) quantify its
+frequency of detection, (2) quantify its magnitude and the lengths and
+ages at which it manifests, and (3) assess how pervasive it is likely to
+be in shark and ray ageing studies. Using the New Zealand porbeagle
+shark as an example, I formulate hypotheses about the potential impacts
+and management implications. I conclude by discussing options for
+addressing the issue and the challenges of shark and ray age validation
+more generally.
+
+\subsection{Materials and methods}\label{materials-and-methods}
+
+To determine the frequency of age underestimation, I conducted a
+comprehensive review of all bomb carbon dating and chemical marking
+studies. I primarily restricted my search to peer-reviewed primary
+literature, although some influential technical reports or books were
+also included. Prior to 2006 a series of literature reviews on age
+determination in sharks and rays provided an exhaustive list of
+validation studies (Cailliet \emph{et al.} 1986, 2006; Cailliet 1990;
+Cailliet and Goldman 2004). Studies from 2006 onward were obtained
+through a search of online databases. Long-term studies that resulted in
+multiple publications were grouped e.g.~Smith (1984), Kusher \emph{et
+al.} (1992), and Smith \emph{et al.} (2003).
+
+Evidence of age underestimation was clear and definitive in some cases,
+but subjective in others. Based on the strength of evidence, age
+underestimation was classified as either `likely' or `possible'. The
+latter category included cases where evidence was ambiguous,
+circumstantial in nature, or was retrospectively invoked as an
+explanation. For example, interpretation of \(\Delta^{14}\textup{C}\)
+signatures used for bomb carbon dating can be confounded by multiple
+factors. As diet is the source of carbon in shark and ray vertebrae,
+\(\Delta^{14}\textup{C}\) signatures are expected to be phase-shifted
+relative to reference chronologies because they feed upon prey with a
+\(^{14}\textup{C}\) content different to the surrounding water (Campana
+\emph{et al.} 2002). Depth-related attenuation, interspecific
+variability, regional differences, ontogeny, and incorrect
+interpretation of growth zones may further affect
+\(\Delta^{14}\textup{C}\) signatures (Campana 1999; Goldman \emph{et
+al.} 2012; Andrews and Kerr 2015), making it necessary to formulate
+hypotheses about the potential cause of any observed phase-shift.
+
+Where age validation studies were accompanied by a full age and growth
+study, I also attempted to quantify the magnitude of age underestimation
+at the population level. Information was collected on the range of ages
+validated, the apparent longevity of the species (based on the highest
+growth zone counts), and the true longevity of the species (based on age
+validation). These data were used to classify the lifespan into three
+components; validated ages, uncertain ages, and underestimated ages
+(Table 1). The apparent proportion of the lifespan that growth
+increments were reliable for was calculated based on these
+classifications, assuming that the periodicity of growth zone deposition
+was the same for all ages (unless otherwise specified). Where only
+lengths of validated individuals were provided, the inverse of the
+corresponding growth function was used to determine the approximate
+range of ages validated.
+
+Most bomb carbon dating studies reported the details of all individuals
+studied. This allowed the lengths and ages in which age underestimation
+manifested to be investigated. In the subset of populations where it was
+detected, data on the length, sex, apparent age, and true age (Table 1)
+were collated for each individual studied. The mean and maximum
+difference between true and apparent age, \(\Delta_{Mean}\) and
+\(\Delta_{Max}\) respectively, were determined for each population. Age
+was divided against the oldest individual reported (\(A_{Max}\)), and
+length divided against asymptotic length (\(L_\infty\)) or, if
+unavailable, the largest individual reported, to provide two
+dimensionless indices of relative age and length. These indices were
+used to statistically investigate the incidence of age underestimation
+as a function of length and age. Incidence of age underestimation was
+modeled separately as a function of relative length and age using
+Generalized Linear Models of the form \[Y_i\sim Bernoulli(p_i)\]
+\[p_i=logit^{-1}\left (\beta_1+\beta_2\cdot  x_i  \right )\] where the
+probability, \(Y_i\), that the age of sample \emph{i} was
+underestimated, was approximated by a Bernoulli random variable, \(x_i\)
+is relative length or relative age, \(\beta_1\) and \(\beta_2\) are
+parameters estimated using maximum likelihood, and \(logit^{-1}(X)\) is
+the logistic function \(exp(X)/(exp(X)+1)\). Data were insufficient to
+include other explanatory variables (e.g.~species, sex) in the model
+structure. All analyses and graphics were undertaken using R (R Core
+Team 2016).
+
+\subsection{Results and Discussion}\label{results-and-discussion}
+
+Between 1973 and 2016 there were 58 unique studies including 44 that
+used chemical marking and 15 that used bomb carbon dating (a single
+study by Andrews \emph{et al.} (2011) used both methods). In total 69
+populations of chondrichthyans were studied of which 16, all chemically
+marked, were excluded from further analysis because they either failed
+to validate any regular temporal periodicity in growth zones, were
+purely methodological, or did not provide any details of the lengths or
+ages validated. The final data analysed included 20 populations
+validated using bomb carbon dating and 33 using chemical marking (see
+Supplementary Material for complete reference list and data).
+
+The majority (91\%) of studies were conducted on sharks including 25
+species from 17 genera and four orders, with ground sharks
+(Carcharhiniformes) and mackerel sharks (Lamniformes) studied most
+frequently. Studies on rays and skates consisted of five species from
+five genera and two orders. No studies were done on chimaeras. Vertebrae
+were the primary ageing structure validated, making up 89\% of studies,
+although a small number of studies on dogfish (Squaliformes) and horn
+sharks (Heterodontiformes) used spines. Most studies (85\%) counted
+growth zones in thin-sections of vertebrae or spines, with the remainder
+using whole or half structures for ageing.
+
+\subsubsection{Frequency of detection}\label{frequency-of-detection}
+
+Across both validation methods there were 21 populations identified
+where age underestimation was likely or possible (Table 2). Age
+underestimation was detected most frequently with bomb carbon dating
+where it was inferred from phase-shifted \(\Delta^{14}\textup{C}\)
+signatures (Fig. 1). The first phase-shift attributed to age
+underestimation was documented in school sharks by Kalish and Johnston
+(2001), however the phenomenon did not gain widespread exposure until
+its discovery in New Zealand porbeagle sharks (Francis \emph{et al.}
+2007). To date, phase-shifts in 10 populations have been directly
+attributed to age underestimation. Documented cases involved eight
+species from seven genera (Table 2). In general, the large temporal
+shift in \(\Delta^{14}\textup{C}\) signature (\(\geq\) five years) led
+authors to conclude that age must have been underestimated, as
+phase-shifts of this magnitude are inconsistent with other possible
+explanations (Goldman \emph{et al.} 2012).
+
+There were also several populations where unexplained, shorter,
+phase-shifts were observed. These were distinct from phase-shifts
+attributable to the metabolically-derived carbon present in ageing
+structures, which generally results in radiocarbon signatures lagging
+reference chronologies by a few years (Campana \emph{et al.} 2002).
+Ontogenetic dietary and depth changes were invoked to explain the
+\(\Delta^{14}\textup{C}\) values in a northwest Atlantic tiger shark
+(\emph{Galeocerdo cuvier}, Carcharhinidae) that were phase-shifted
+relative to other individuals studied (Kneebone \emph{et al.} 2008). The
+authors noted parallels with a study on northeast Pacific white sharks
+(\emph{Carcharadon carcharias}, Lamnidae) (Kerr \emph{et al.} 2006),
+however the phase-shift in that study was later attributed to age
+underestimation (Andrews and Kerr 2015). Methodological error was
+thought to explain phase-shifts in some samples of spiny dogfish
+(\emph{Squalus} spp., Squalidae) (Campana \emph{et al.} 2006) and
+shortfin mako (\emph{Isurus oxyrinchus}, Lamnidae) (Ardizzone \emph{et
+al.} 2006) --- the latter species is also further complicated by its
+potentially variable growth zone deposition (Natanson \emph{et al.}
+2006; Kinney \emph{et al.} 2016). Although not considered in these
+cases, underestimation of age by a few years could conceivably be a
+causal factor. Excluding these studies where evidence was ambiguous, age
+underestimation still likely occurred in a minimum of 50\% of bomb
+carbon dating studies (Table 2).
+
+Fewer chemically marked populations exhibited signs of age
+underestimation; it occurred in eight populations, including six
+considered to be likely and two possible (Fig. 2, Table 2). Likely cases
+involved six species from four genera. They included several instances
+where chemical marks were visible on the distal margin of vertebrae of
+individual specimens following recapture after several years, indicating
+that no growth zones had been formed subsequently (Pierce and Bennett
+2009; Chin \emph{et al.} 2013; Harry \emph{et al.} 2013; Frazier
+\emph{et al.} 2014). Walker \emph{et al.} (2001) also provided
+population-level evidence of age underestimation in school sharks, a
+finding consistent with the bomb carbon dating by Kalish and Johnston
+(2001). Using analysis of variance, the mean number of annual growth
+zones was found to be significantly less than one in length classes
+\textgreater{}1000 mm, with sharks \textgreater{} 1400 mm producing, on
+average, one growth zone every four years.
+
+Age underestimation was possible in a further two chemically marked
+populations. Natanson (1993) hypothesized that growth zone deposition
+may cease in reproductively active females based on a captive study of
+little skates (\emph{Raja erinacea}, Rajidae). Davenport and Stevens
+(1988) aged Australian blacktip sharks (\emph{Carcharhinus tilstoni},
+Carcharhinidae) to 12 years old, using chemical marking and marginal
+increment techniques for validation. A subsequent recapture after 18
+years (estimated to have been at least two when tagged) suggests
+substantially greater longevity (Harry \emph{et al.} 2013). Similar
+long-term recaptures of school shark and bonnethead sharks
+(\emph{Sphyrna tiburo}, Sphyrnidae) have also been reported (Francis
+\emph{et al.} 2007; Frazier \emph{et al.} 2014). The overall level of
+detection in chemical validation studies was lower than that of bomb
+carbon dating. Nonetheless it was likely to have occurred in at least
+18\% of populations.
+
+The limitations on both methods for detecting age underestimation, and
+also the difficulty of comparing detection levels between them, are
+highlighted in Figures 1 and 2. Bomb carbon dating was typically done of
+a small number of the oldest and largest individuals sampled and the
+method validates the entire lifespan of those individuals (Fig. 1). As
+age underestimation is generally assumed to occur in older and larger
+individuals, it follows that this method is more likely to detect it.
+Except in a few cases, chemical marking typically only validated a small
+subset of the total lifespan of the population and did not include older
+individuals, which are presumably both less abundant and less amendable
+to tag and recapture due to their larger size (Fig. 2). As such, age
+underestimation may not be expected to be detected in as many chemical
+marking studies.
+
+At least two other factors may confound or limit the ability to detect
+age underestimation using these methods. The failure of fluorochrome
+dyes to actually mark the vertebrae of some individuals was noted in
+numerous chemical marking studies. For example, McFarlane and Beamish
+(1987) reported that OTC marks failed to form in 34\% of Pacific spiny
+dogfish (\emph{Squalus suckleyi}, Squalidae) spines, and that marking
+success rates varied between seasons. Walker \emph{et al.} (2001)
+attributed this type of failure to either a lack of vertebral
+mineralization due to low somatic growth rates or methodological error
+such as a failure to properly inject chemicals into the body cavity of
+the fish. Since age underestimation is also typically attributed to the
+slowing or cessation of growth, these outcomes may be confounded. If
+slow growth does indeed limit or stop the incorporation of chemical
+markers in calcified structures it implies that they would no longer be
+useful as a validation tool. The ability to detect a small
+underestimation of age using bomb carbon dating is also unclear since it
+would presumably be difficult to distinguish from phase-shifts related
+to the metabolically-derived carbon present in shark and ray ageing
+structures.
+
+\subsubsection{Magnitude and
+manifestation}\label{magnitude-and-manifestation}
+
+The mean magnitude of age underestimation, \(\Delta_{Mean}\), detected
+using bomb carbon dating ranged from five years in thorny skates
+(\emph{Leucoraja ocellata}, Rajidae) (McPhie and Campana 2009), to 22
+years in New Zealand porbeagle sharks (Francis \emph{et al.} 2007),
+averaging 13 years across all studies (Table 2). The greatest individual
+disparity between true and apparent age, \(\Delta_{Max}\), was also in a
+New Zealand porbeagle shark that was underaged by 34 years. However,
+this population appeared to be exceptional and the next largest
+disparity was in a northwest Atlantic white shark underaged by 21 years
+(Hamady \emph{et al.} 2014). \(\Delta_{Max}\) averaged 18 years across
+all studies. For chemically marked populations the estimation of
+\(\Delta_{Mean}\) and \(\Delta_{Max}\) was limited by the short duration
+of studies and small sample sizes; both ranged from 2 to 3 years.
+
+Among the 10 bomb carbon dating studies where age underestimation was
+likely, 61 individual samples were pooled for analysis. With the
+exception of three outliers (two northeast Pacific white sharks and one
+school shark), there were consistent patterns in the relative lengths
+and ages that it occurred in (Fig. 3a). Relative length, in particular,
+was a strong and highly significant predictor of occurrence (Likelihood
+ratio test: \(\chi^2\)=62.33, \emph{d.f.}=1, \emph{P}\textless{}0.01).
+At lengths above 88\% of \(L_\infty\) more than half of all individuals
+were underaged (Fig. 3b, Table 3). Relative age was also a highly
+significant predictor of occurrence (Likelihood ratio test:
+\(\chi^2\)=58.39, \emph{d.f.}=1, \emph{P}\textless{}0.01). At ages above
+41\% of \(A_{Max}\) more than half of individuals were underaged (Fig.
+3c, Table 3). This implies that, on average, ageing structures provided
+a valid record of age for less than half of the maximum longevity of the
+species.
+
+Using the definitions in Table 1, the extent of age underestimation in
+bomb carbon dating studies is even more pronounced, since any ages above
+the age that it is first detected are effectively uncertain. Based on
+these definitions, growth zones were a reliable and valid indicator of
+true age for approximately a third of total lifespan (median = 34\%)
+(Fig. 1, Table 2).
+
+\subsubsection{How pervasive is age
+underestimation?}\label{how-pervasive-is-age-underestimation}
+
+Determining just how pervasive age underestimation is in sharks and rays
+is difficult since chemical marking seems inherently less likely to
+detect it than bomb carbon dating. It is also possible that both methods
+may be unable to detect it or decouple it from other processes in
+certain situations. Shark and ray age validation studies in general were
+characterized by very low sample sizes -- 57\% of studies were based on
+fewer than 10 samples, and 17\% were based on only a single individual
+(Fig. 1, Fig. 2). The relatively high frequency of detection in spite of
+these small sample sizes suggests it must be relatively common.
+
+Age underestimation occurred in at least nine different genera (Table
+2), indicating it is a widespread phenomenon. Although predominantly
+detected in two orders, the Lamniformes and Carcharhiniformes, these
+were also by far the most intensively studied (see Supplementary
+Material). Age underestimation does not seem to be restricted to
+particular life history types, and has been reported in some relatively
+small and short-lived species such as blue-spotted mask rays
+(\emph{Neotrygon kuhlii}, Dasyatidae) (Pierce and Bennett 2009) as well
+as large and long-lived species such as dusky sharks (\emph{Carcharhinus
+obscurus}, Carcharhinidae) (Natanson \emph{et al.} 2014).
+
+Although common and widespread, it does not seem to be ubiquitous, and
+was absent from some well-studied species. Age underestimation has not
+been reported in gummy sharks (\emph{Mustelus antarcticus}, Triakidae) a
+species studied concurrently with school sharks over many decades in
+southern Australian waters (Walker \emph{et al.} 2001). Likewise, there
+is no evidence for it in the well-studied leopard shark (\emph{Triakis
+semifasciata}, Triakidae) (although Kusher \emph{et al.} (1992) noted
+that OTC uptake was insufficient for age validation in 65\% of
+recaptured sharks). There is also evidence of intraspecific variability
+in its occurrence; it was absent in northwest Atlantic porbeagle sharks
+(Campana \emph{et al.} 2002) but present in New Zealand porbeagles
+(Francis \emph{et al.} 2007) (differences in sampling and exploitation
+history (Cassoff \emph{et al.} 2007) should be noted here, however).
+
+Two interrelated and mutually inclusive hypotheses have been proposed to
+explain age underestimation in shark and ray ageing studies:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+\item
+  it results from growth zones becoming vanishingly small and
+  unresolvable on the margin of ageing structures as individuals get
+  larger and older, and as growth decreases (Francis \emph{et al.} 2007;
+  Chin \emph{et al.} 2013; Hamady \emph{et al.} 2014), or
+\item
+  it results from a temporary or permanent cessation of growth and
+  growth zone formation (Natanson \emph{et al.} 2014) potentially
+  occurring at any life stage, including in response to a reallocation
+  of resources to reproduction (Natanson 1993; Harry \emph{et al.} 2013)
+  or from ``feast and famine'' feeding behavior (Andrews and Kerr 2015).
+\end{enumerate}
+
+Current evidence does not clearly favor either hypothesis. On the one
+hand, age determination in many sharks and rays is inherently difficult,
+and progress in ageing slow due in large part to the limitations of
+available ageing structures (Cailliet and Goldman 2004; Goldman \emph{et
+al.} 2012). Intraspecifically, counts and readability of growth zones
+have been shown to vary depending on the method of preparation (Irvine
+\emph{et al.} 2006), reader experience (Officer \emph{et al.} 1996),
+type of structure used (Bubley \emph{et al.} 2012), and region of the
+vertebral column sampled (Natanson and Skomal 2015). The hypothesis that
+growth zones simply become unresolvable is appealing since it implies
+that, with the right method of preparation, the true age may still be
+attainable. However, it also risks overlooking the extensive research
+done with the aim of enhancing the readability of ageing structures.
+This includes histology (Natanson 1993), radiography (Aasen 1963),
+scanning x-ray fluorescence microscopy (Raoult \emph{et al.} 2016),
+micro-computed tomography (Geraghty \emph{et al.} 2012) and a multitude
+of staining and sectioning techniques (Cailliet \emph{et al.} 1983;
+Goldman \emph{et al.} 2012). While these techniques have sometimes
+revealed underageing (Francis \emph{et al.} 2007; Maurer 2009), none has
+yet indicated that counts may be underestimated by the large magnitudes
+documented here.
+
+On the other hand, the hypothesis that age underestimation is due to
+growth zones ceasing to form also has foundation. Otolith mineralization
+differs from most other calcified structures found in vertebrates,
+taking place within an acellular medium known as endolymph with
+deposition of new material occurring daily (Morales-Nin 2000; Payan
+\emph{et al.} 2004). Francis \emph{et al.} (2007) note that ``vertebrae
+form part of the axial skeleton of a shark so, in theory, if the shark's
+somatic growth ceases, then deposition of material on the outer margin
+of the vertebrae should also cease''. Elasmobranch vertebral centra, the
+structures used most commonly for age determination, are a form of
+densely calcified `areolar' cartilage found uniquely within the
+vertebrae (Dean and Summers 2006). Unlike bone, mineral content in shark
+and ray cartilage has been shown to vary within individuals,
+intraspecifically, and interspecifically (Porter \emph{et al.} 2007).
+Indeed, the vertebral centra of sharks and rays are so variable that
+they were initially thought to be useful for taxonomic classification
+(Ridewood 1921). In addition to this, the physiological and mechanical
+factors that mediate mineralization of vertebrae are still largely
+unknown (Dean and Summers 2006; Porter \emph{et al.} 2007), despite long
+being recognized as centrally important to ageing (Cailliet \emph{et
+al.} 1986). So while counts of growth zones obtained from shark and ray
+ageing structures are essentially treated the same as those from
+otoliths, the underlying processes that generate them have not been
+demonstrated to be the same, and may well differ.
+
+Evidence from bomb carbon dating, where age underestimation manifested
+almost entirely in larger and older individuals, is consistent with the
+suggestion that growth zone periodicity changes or ceases later in life,
+potentially after the onset of sexual maturity (Casey and Natanson 1992;
+Natanson \emph{et al.} 2016). While no conclusive link with maturation
+has been demonstrated, this would provide a physiological mechanism to
+explain age underestimation. Growth zone formation has also recently
+been shown to shift from biannual to annual after maturity in shortfin
+mako vertebrae (Kinney \emph{et al.} 2016). Many sharks and rays have
+reproductive cycles that last two or more years, so if the timing and
+frequency of growth zones are linked to reproductive events, associated
+changes in the frequency of growth zone formation could be difficult to
+detect, and may only gradually become evident after several full
+reproductive cycles.
+
+At present little can be definitively said about the mechanisms
+underlying age underestimation. In summary though, it appears to be
+common and widespread and manifests in similar ways across a range of
+species. On the balance of this evidence, it seems likely to be a
+systemic issue associated with the current methods and structures used
+for ageing sharks and rays. While it may not occur in all species, it
+will probably continue to be detected as validation studies increase and
+expand across taxa, particularly if ageing methods remain unchanged.
+
+\subsubsection{Implications}\label{implications}
+
+The findings of this study are relevant to the numerous species that
+have been and continue to be aged by counting growth zones on calcified
+structures. Importantly, this study confirms that it is no longer
+sufficient to assume growth zones are deposited regularly on ageing
+structures throughout life, reinforcing the need for ongoing validation
+of all age classes. Yet while numerous studies have now documented age
+underestimation, there has still been no directed investigation of its
+effects and only limited discussion of its possible implications. As a
+starting point I consider the potential effects in relation to two
+fundamental population processes, growth and mortality.
+
+\paragraph{Growth}\label{growth}
+
+One of the most clearly apparent effects of underestimating age relates
+to modelling growth. Since ages from growth zone counts are an unknown
+function of true age, it follows that any growth parameters estimated
+from these data are likely to be biased. Francis \emph{et al.} (2007),
+the only authors to so far correct for age underestimation, used a
+modified Von Bertalanffy growth function to adjust growth zone counts to
+reflect true ages. Natanson \emph{et al.} (2016) on the other hand,
+opted to remove all ages deemed unreliable (\textgreater{} 14 years) and
+used only back-calculated data when re-fitting growth curves to account
+for age underestimation in common thresher sharks (\emph{Alopias
+vulpinus}, Alopiidae). In both these particular cases the resultant
+growth curves were similar to those fit to the original data, suggesting
+that any bias was minimal. Indeed, this may be expected since age was
+underestimated in individuals that had completed most of their growth
+already.
+
+Simulating data from the models in Francis \emph{et al.} (2007) suggests
+that age underestimation could still have a pronounced impact,
+especially when sample sizes are small. Through the underestimation of
+age, there is an apparent `loss' of older individuals from length-at-age
+data. This effectively truncates the asymptote of the growth curve,
+presumably making it more difficult to obtain an unbiased estimate of
+\(L_\infty\) (Fig. 4a). \(L_\infty\) is strongly, negatively correlated
+with the growth coefficient, \emph{k}, in many commonly used models for
+describing fish growth. As such, a positively biased (larger)
+\(L_\infty\) associated with this apparent absence of older individuals
+would lead to a negatively biased (lower) \emph{k}, somewhat analogous
+to the bias generated by length-selective fishing gears such as gillnets
+(Walker \emph{et al.} 1998; Thorson and Simpfendorfer 2009). This
+phenomenon was seen in northwest Atlantic dusky sharks; using validated
+data points corrected for age underestimation led to an increase in the
+estimated growth coefficient of 6-17\% and a decrease in \(L_\infty\) of
+8-9\% (Natanson \emph{et al.} 2014). Growth coefficients, \emph{k},
+estimated from vertebral ageing of school sharks, where ages are known
+to be substantially underestimated, were 24-26\% lower than estimated
+from two long-term tagging studies (Moulton \emph{et al.} 1992). Thus, a
+paradox of underestimating age is that the bias introduced may lead to
+an underestimate of the growth coefficient, not an overestimate, as
+would be intuitively expected.
+
+Francis \emph{et al.} (2007) showed that simple corrections can account
+for some of the bias associated with age underestimation. However, under
+even slightly more complex assumptions it is clear that additional
+biases would be more difficult to correct for. For example, assuming
+that the growth coefficient (i.e. \emph{k}) varies among individuals in
+a population and that age underestimation is predominantly a function of
+length, it would be expected to disproportionately impact faster growing
+individuals (Fig. 4b). At the very least it is likely to further add to
+the challenge of estimating robust growth parameters in sharks and rays
+by compounding biases caused by length selective fishing, low sample
+sizes, and growth model uncertainty.
+
+\paragraph{Mortality}\label{mortality}
+
+The more directly obvious impact of age underestimation is on longevity.
+The frequency and magnitude of age underestimation documented here
+indicates that many sharks and rays are likely to live much longer than
+currently thought. This is important since longevity is frequently used
+to make inferences about natural mortality, \emph{M}, a parameter that
+is highly influential in population models and that nearly always has to
+be pre-specified for information-limited taxa such as sharks and rays
+(Kenchington 2014). Reduced longevity is also symptomatic of a more
+general `loss of age structure' caused by age underestimation, which
+presents a potentially more serious issue than biased growth parameters.
+When using age structured population models that are fit to these data
+such as catch curves (Simpfendorfer 1999; Robbins \emph{et al.} 2006),
+this apparent loss of population age structure could be inadvertently
+attributed to or indistinguishable from fishing mortality (Fig. 4c).
+
+Understanding the impacts of these biases on populations, which are
+influenced by complex and non-linear dynamics, is not straightforward.
+Shorter-lived species are generally more productive (i.e.~have a higher
+recruitment). The much greater longevity found for many species may
+indicate they have a lower natural mortality and in turn lower
+productivity and resilience to fishing than currently thought. In
+contrast, in a simple demographic analysis assuming Hoenig mortality for
+New Zealand porbeagles, use of the true longevity of 65 years results in
+a much greater net reproductive rate, \(R_0\), than if the apparent
+longevity of 38 years is used. This translates to a population doubling
+time of \textasciitilde{}9 years compared with \textasciitilde{}22 years
+(Fig. 4d), implying much greater population productivity. In sand tiger
+sharks (\emph{Carcharias taurus}, Odontaspididae) it was noted that the
+upward revision of lifespan to 40 years would lead to at least five
+times more reproductive years than previously thought, again implying
+increased productivity (Passerotti \emph{et al.} 2014).
+
+\begin{center}
+\noindent\rule{2cm}{0.4pt}
+\end{center}
+
+These examples, while simplistic, highlight the potential ways that age
+underestimation may have skewed understanding of shark and ray
+population dynamics. With only a handful of long-term, empirical
+observations of wild shark and ray populations (e.g.~Feldheim \emph{et
+al.} (2014)), current perceptions of population dynamics, including key
+areas such as fisheries productivity reference points and extinction
+risk, are strongly shaped by comparative life history studies (Cortés
+2000; Frisk \emph{et al.} 2001, 2005; Pardo \emph{et al.} 2016) and
+meta-analyses (García \emph{et al.} 2008; Hutchings \emph{et al.} 2012;
+Zhou \emph{et al.} 2012) that draw heavily upon age and growth studies.
+
+Such are the data limitations for many populations that assessments are
+often based solely on life history information (Cortés 2002, 2016;
+Brooks \emph{et al.} 2009). This means that the above issues have the
+potential to extend well beyond the specific examples above. For
+example, age-at-maturity, another key determinant of population
+productivity (Smith \emph{et al.} 1998; Pardo \emph{et al.} 2016), is
+frequently obtained from the inverse of a growth curve at
+length-at-maturity, meaning it too would be susceptible to biased growth
+parameters. Sidestepping the use of biased parameters altogether is also
+difficult. While it may be possible to use assessment techniques that
+avoid specifying, say, longevity (Xiao 2002; Skalski \emph{et al.}
+2008), it is generally not possible to avoid \emph{M} altogether.
+Furthermore, almost all life history invariant techniques that are used
+to pre-specify \emph{M} require the use of length-at-age, growth
+parameters, or longevity (Kenchington 2014; Then \emph{et al.} 2014).
+These dependencies mean there is considerable potential for ageing error
+to propagate through population assessments.
+
+Through these types of biases, age underestimation may have important
+flow-on effects for fisheries management and conservation. With
+age-structured population models increasingly being used to support
+management of commercially exploited stocks (Cortés \emph{et al.} 2012),
+model misspecficiation due to ageing error has the potential to affect
+scientific advice such as acceptable catch limits. The impacts that
+these types of errors can have are well documented in teleosts (Yule
+\emph{et al.} 2008; Melvin and Campana 2010). For example,
+underestimation of longevity in orange roughy (\emph{Hoplostethus
+atlanticus}, Trachichthyidae) (Smith \emph{et al.} 1995) and Pacific
+ocean perch (\emph{Sebastes alutus}, Sebastidae) (Beamish 1979) led to
+overly optimistic estimates of stock productivity, in both cases
+contributing to serious, long-term ecological and socio-economic impacts
+on these resources.
+
+Given that sharks and rays are often not the target of fishing
+activities, management strategies are typically less responsive. They
+are often centered around the identification and protection of high-risk
+species or mitigation of high-risk activities using measures such as
+spatial and temporal closures and species catch restrictions. Because of
+this, the ultimate impacts of age underestimation from a conservation or
+fisheries management perspective may well be more insidious, occurring
+through the misclassification of high-risk species, leading to
+inefficient prioritization of research, monitoring, and management
+measures. If age underestimation is indeed as widespread and common as
+indicated from this study, the impacts could also be substantial from a
+wider scientific perspective, affecting the many disciplines that also
+use baseline life history data.
+
+The implications of age underestimation are also by no means restricted
+to sharks and rays, and this study serves as a reminder of the potential
+impacts on fish more generally. While the processes governing otolith
+mineralization are well understood, many species, particularly
+long-lived and deep-water, are nonetheless difficult to age, which can
+lead to underestimation of true age. Similar phase-shifts to those
+reviewed here have been documented in bocaccio rockfish (\emph{Sebastes
+paucispinis}, Sebastidae) (Andrews \emph{et al.} 2005), for example. The
+use of whole rather than sectioned otoliths has also frequently been
+shown to underestimate age (Bennett \emph{et al.} 1982; Dwyer \emph{et
+al.} 2016). For example, the use of whole otoliths likely resulted in a
+biased growth curve for southern bluefin tuna (\emph{Thunnus maccoyii},
+Scombridae) (Gunn \emph{et al.} 2008). In addition to this, a range of
+structures other than otoliths are routinely used to age fish, many of
+which have been shown to underestimate age including scales (Secor
+\emph{et al.} 1995), fin-rays (Rien and Beamesderfer 1994), and
+vertebrae (Gunn \emph{et al.} 2008). In most of these instances, the
+impacts of ageing error are presumably isolated to specific populations.
+Nonetheless, for groups of species that are difficult to or unable to be
+aged using otoliths, the potential exists for more widespread biases to
+manifest.
+
+\subsubsection{Confronting the challenges of shark and ray
+ageing}\label{confronting-the-challenges-of-shark-and-ray-ageing}
+
+The outcomes of this study highlight the ongoing difficulties of ageing
+sharks and rays using calcified structures, particularly the validation
+of growth zones in older individuals. At present it is unclear whether
+the underestimation of ages is a major problem, or perhaps a simple bias
+that, for some applications, could be corrected with adjustments like
+those made to otolith back-calculations (Campana 1990) or worn spines
+(Taylor \emph{et al.} 2013). Although this study is the first time data
+have been synthesized and quantified on age underestimation, the issue
+is far from new (Kalish and Johnston 2001). But despite repeated
+invalidation of ageing structures in older individuals of a range of
+species, it has not yet led to widespread changes to ageing practices or
+growth modeling.
+
+Understanding the extent of the problem and ultimately addressing it
+will require, in the first instance, more data. While the number of age
+validation studies has increased in recent years, the studies reviewed
+here cover fewer than 5\% of described species (Fig. 1 and Fig. 2). As
+noted by Cailliet (2015) and emphasized by Figure 2, even fewer of these
+species have been validated convincingly. Bomb carbon dating appears to
+be the most effective tool currently available for age validation of
+sharks and rays; it is the most likely to give a true indication of
+longevity and detect whether age has been underestimated. The high cost
+of such studies, the increasing difficulty of obtaining archived samples
+born prior to the rise in \(\Delta^{14}\textup{C}\), and the
+unsuitability for shorter-lived species mean it is not a `silver
+bullet'.
+
+Fluorochrome chemical marking is clearly an effective tool in some
+situations, however this study raises questions about its usefulness for
+validating older age-classes and why it seemingly fails in many cases.
+The ongoing use of chemical markers in laboratory-based studies to
+quantify mineralization rates may help resolve some of these questions
+(Officer \emph{et al.} 1997), particularly if they can be extended to
+examine the influence of factors such as length, age, and maturity
+stage. Extending the inferences from these studies to wild populations
+is always problematic, and therefore long-term tag-recapture studies
+targeting both juveniles and adults are the only way to convincingly
+validate age and the efficacy of chemical marking in older individuals.
+As this study shows, the costs and logistical difficulties of conducting
+either type of study have so far made them feasible for a very small
+number of stocks globally, and this seems unlikely to change in the
+foreseeable future.
+
+As the enormity and complexity of the conservation challenges facing
+sharks and rays globally becomes increasingly clear (Dulvy \emph{et al.}
+2014, 2017), there may be a need to confront the wider issue, that
+calcified structures may be insufficient to meet the ageing needs of
+many species. While there are many excellent examples that illustrate
+that sharks and rays can be aged successfully using calcified
+structures, after more than 50 years of ageing, one of the most
+consistent feature of such structures is their inconsistency (Goldman
+\emph{et al.} 2012; Cailliet 2015). With no foreseeable end to the
+difficulties associated with traditional ageing structures, it may be
+time to look for solutions that complement existing methods and can
+assist in building the deeper understanding of growth and mortality
+needed for effective conservation and management.
+
+One such solution could include a shift in focus toward the use of
+alternative data sources, for example tag-recapture and length-based
+data for estimating growth. Although commonly used, there has been a
+tendency to view these data as less credible compared to those derived
+from calcified ageing structures which, until now, have been seen as the
+more reliable source of information. Indeed, many of the studies
+reviewed here also included tag-recapture components that were often
+discussed in less detail and rarely considered the `preferred' growth
+model (Davenport and Stevens 1988; McAuley \emph{et al.} 2006; Kneebone
+\emph{et al.} 2008; Andrews \emph{et al.} 2011). Comparison of growth
+parameters derived from populations studied simultaneous using both
+methods may also be one of the only ways to empirically determine
+whether some of the expected biases proposed here really exist.
+
+In recent years, tagging programs for sharks and rays have increasingly
+been initiated for various non-fishery related applications
+(e.g.~acoustic telemetry, ecological study, human-safety) and by
+non-fisheries institutions (e.g.~universities, ENGOs). Such programs can
+potentially be of considerable value in supplementing the limited
+resources of fisheries agencies for obtaining long-term data on growth.
+The use of tagging and length-based methods is also consistent with the
+shift towards non-lethal alternatives to sampling that are now
+increasingly being advocated (Hammerschlag and Sulikowski 2011).
+Opportunities for collecting and making tag-recapture data publicly
+available for age and growth estimation purposes should be embraced
+where possible.
+
+\subsection{Conclusions}\label{conclusions}
+
+\begin{quote}
+\emph{The prevalence and impact of inaccurate age determinations on the
+accuracy of population dynamics studies cannot be overstated} (Campana
+2001)
+\end{quote}
+
+The study of shark and ray life history has evolved in much the same way
+as in teleost fish. It is, in large part, built upon the ageing of
+individuals from which parameters such as growth, age at maturity,
+longevity, and mortality are estimated or indirectly inferred. The
+simple assumption underpinning this process is that counts of growth
+zones do indeed provide a valid record of age throughout life. The
+comprehensive review of bomb carbon dating and chemical marking age
+validation studies undertaken here shows that this assumption is
+frequently violated, highlighting a systemic problem associated with the
+most common method and structures used for ageing. Given the inherent
+difficulties in studying wild populations, age and growth studies form
+the basis of much of the current understanding of shark and ray
+population dynamics. So while age underestimation, in isolation, may be
+regarded as a relatively unimportant or minor issue, its impacts could
+still be far reaching and warrant closer attention. The ongoing
+potential for it to compound the existing, significant challenges in
+obtaining accurate estimates of growth, longevity, and mortality for
+sharks and rays should not be overlooked.
+
+\subsection{Acknowledgements}\label{acknowledgements}
+
+This manuscript benefited greatly from detailed and insightful reviews
+by L. J. Natanson, E. Cort\(\acute{\textup{e}}\)s, and a third,
+anonymous reviewer. Thank you to D. S. Waltrick and L. F. N. Waltrick
+for your support and encouragement.
+
+\newpage
+
+\subsection*{References}\label{references}
+\addcontentsline{toc}{subsection}{References}
+
+\hypertarget{refs}{}
+\hypertarget{ref-aasen_length_1963}{}
+Aasen, O. (1963) Length and growth of the porbeagle (\emph{Lamna nasus},
+Bonnaterre) in the North West Atlantic. \emph{Fiskeridirektoratets
+skrifter, Serie Havundersøkelser} \textbf{13}, 20--37.
+
+\hypertarget{ref-andrews_validated_2015}{}
+Andrews, A.H. and Kerr, L.A. (2015) Validated age estimates for large
+white sharks of the northeastern Pacific Ocean: Altered perceptions of
+vertebral growth shed light on complicated bomb \(\Delta\)14C results.
+\emph{Environmental Biology of Fishes} \textbf{98}, 971--978.
+doi:\href{https://doi.org/10.1007/s10641-014-0326-8}{10.1007/s10641-014-0326-8}.
+
+\hypertarget{ref-andrews_bomb_2005}{}
+Andrews, A.H., Burton, E.J., Kerr, L.A., Cailliet, G.M., Coale, K.H.,
+Lundstrom, C.C. and Brown, T.A. (2005) Bomb radiocarbon and lead--Radium
+disequilibria in otoliths of bocaccio rockfish (\emph{Sebastes
+paucispinis}): A determination of age and longevity for a
+difficult-to-age fish. \emph{Marine and Freshwater Research}
+\textbf{56}, 517--528.
+doi:\href{https://doi.org/10.1071/MF04224}{10.1071/MF04224}.
+
+\hypertarget{ref-andrews_bomb_2011}{}
+Andrews, A.H., Natanson, L.J., Kerr, L.A., Burgess, G.H. and Cailliet,
+G.M. (2011) Bomb radiocarbon and tag-recapture dating of sandbar shark
+(\emph{Carcharhinus plumbeus}). \emph{Fishery Bulletin} \textbf{109},
+454--465.
+
+\hypertarget{ref-ardizzone_application_2006}{}
+Ardizzone, D., Cailliet, G.M., Natanson, L.J., Andrews, A.H., Kerr, L.A.
+and Brown, T.A. (2006) Application of bomb radiocarbon chronologies to
+shortfin mako (\emph{Isurus oxyrinchus}) age validation.
+\emph{Environmental Biology of Fishes} \textbf{77}, 355--366.
+doi:\href{https://doi.org/10.1007/s10641-006-9106-4}{10.1007/s10641-006-9106-4}.
+
+\hypertarget{ref-beamish_new_1979}{}
+Beamish, R.J. (1979) New Information on the longevity of Pacific Ocean
+Perch (\emph{Sebastes alutus}). \emph{Journal of the Fisheries Research
+Board of Canada} \textbf{36}, 1395--1400.
+doi:\href{https://doi.org/10.1139/f79-199}{10.1139/f79-199}.
+
+\hypertarget{ref-beamish_forgotten_1983}{}
+Beamish, R.J. and Mcfarlane, G.A. (1983) The forgotten requirement for
+age validation in fisheries biology. \emph{Transactions of the American
+Fisheries Society} \textbf{112}, 735--743.
+doi:\href{https://doi.org/10.1577/1548-8659(1983)112\%3C735:TFRFAV\%3E2.0.CO;2}{10.1577/1548-8659(1983)112\textless{}735:TFRFAV\textgreater{}2.0.CO;2}.
+
+\hypertarget{ref-bennett_confirmation_1982}{}
+Bennett, J.T., Boehlert, G.W. and Turekian, K.K. (1982) Confirmation of
+longevity in \emph{Sebastes diploproa} (Pisces: Scorpaenidae) from
+210Pb/226Ra measurements in otoliths. \emph{Marine Biology} \textbf{71},
+209--215.
+doi:\href{https://doi.org/10.1007/BF00394632}{10.1007/BF00394632}.
+
+\hypertarget{ref-brooks_analytical_2009}{}
+Brooks, E.N., Powers, J.E. and Cortés, E. (2009) Analytical reference
+points for age-structured models: Application to data-poor fisheries.
+\emph{ICES Journal of Marine Science: Journal du Conseil}, fsp225.
+doi:\href{https://doi.org/10.1093/icesjms/fsp225}{10.1093/icesjms/fsp225}.
+
+\hypertarget{ref-bubley_reassessment_2012}{}
+Bubley, W.J., Kneebone, J., Sulikowski, J.A. and Tsang, P.C.W. (2012)
+Reassessment of spiny dogfish \emph{Squalus acanthias} age and growth
+using vertebrae and dorsal-fin spines. \emph{Journal of Fish Biology}
+\textbf{80}, 1300--1319.
+doi:\href{https://doi.org/10.1111/j.1095-8649.2011.03171.x}{10.1111/j.1095-8649.2011.03171.x}.
+
+\hypertarget{ref-cailliet_perspectives_2015}{}
+Cailliet, G. (2015) Perspectives on elasmobranch life-history studies: A
+focus on age validation and relevance to fishery management.
+\emph{Journal of fish biology} \textbf{87}, 1271--1292.
+doi:\href{https://doi.org/10.1111/jfb.12829}{10.1111/jfb.12829}.
+
+\hypertarget{ref-cailliet_elasmobranch_1990}{}
+Cailliet, G.M. (1990) Elasmobranch age determination and verification:
+An updated review. In: \emph{Elasmobranchs as living resources: Advances
+in the biology, ecology, systematics, and the status of the fisheries
+NOAA Technical Report NMFS 90}. (eds H.L. Pratt, S.H. Gruber and T.
+Taniuchi). pp 157--165.
+
+\hypertarget{ref-cailliet_age_2004}{}
+Cailliet, G.M. and Goldman, K.J. (2004) Age determination and validation
+in chondrichthyan fishes. In: \emph{Biology of sharks and their
+relatives}. (eds J.C. Carrier, J.A. Musick and M.R. Heithaus). CRC
+Press, Boca Raton, pp 399--448.
+
+\hypertarget{ref-cailliet_techniques_1983}{}
+Cailliet, G.M., Martin, L.K., Kusher, D., Wolf, P. and Welden, B.A.
+(1983) Techniques for enhancing vertebral bands in age estimation of
+California elasmobranchs. In: \emph{Proceedings of the International
+Workshop on Age Determination of Oceanic Pelagic Fishes: Tunas,
+Billfishes, and Sharks. 1982. NOAA Technical Report NMFS 90}. (eds E.D.
+Prince and L.M. Pulos). US Department of Commerce, National Oceanic and
+Atmospheric Administration, National Marine Fisheries Service,
+Scientific Publications Office, National Marine Fisheries Service, NOAA,
+pp 157--165.
+
+\hypertarget{ref-cailliet_elasmobranch_1986}{}
+Cailliet, G.M., Radtke, R.L. and Welden, B.A. (1986) Elasmobranch age
+determination and verification: A review. In: \emph{Indo-Pacific Fish
+Biology: Proceedings of the second international conference on
+Indo-Pacific fishes}. (eds R. Uyeno, T. Arai, T. Taniuchi and K.
+Matsuura). Ichthyological Society of Japan, Tokyo, pp 345--360.
+
+\hypertarget{ref-cailliet_age_2006}{}
+Cailliet, G.M., Smith, W.D., Mollet, H.F. and Goldman, K.J. (2006) Age
+and growth studies of chondrichthyan fishes: The need for consistency in
+terminology, verification, validation, and growth function fitting.
+\emph{Environmental Biology of Fishes} \textbf{77}, 211--228.
+doi:\href{https://doi.org/10.1007/978-1-4020-5570-6_2}{10.1007/978-1-4020-5570-6\_2}.
+
+\hypertarget{ref-campana_accuracy_2001}{}
+Campana, S.E. (2001) Accuracy, precision and quality control in age
+determination, including a review of the use and abuse of age validation
+methods. \emph{Journal of Fish Biology} \textbf{59}, 197--242.
+doi:\href{https://doi.org/10.1006/jfbi.2001.1668}{10.1006/jfbi.2001.1668}.
+
+\hypertarget{ref-campana_chemistry_1999}{}
+Campana, S.E. (1999) Chemistry and composition of fish otoliths:
+Pathways, mechanisms and applications. \emph{Marine Ecology Progress
+Series} \textbf{188}, 263--297.
+doi:\href{https://doi.org/10.3354/meps188263}{10.3354/meps188263}.
+
+\hypertarget{ref-campana_how_1990}{}
+Campana, S.E. (1990) How reliable are growth back-calculations based on
+otoliths? \emph{Canadian Journal of Fisheries and Aquatic Sciences}
+\textbf{47}, 2219--2227.
+doi:\href{https://doi.org/10.1139/f90-246}{10.1139/f90-246}.
+
+\hypertarget{ref-campana_bomb_2006}{}
+Campana, S.E., Jones, C., McFarlane, G.A. and Myklevoll, S. (2006) Bomb
+dating and age validation using the spines of spiny dogfish
+(\emph{Squalus acanthias}). \emph{Environmental Biology of Fishes}
+\textbf{77}, 327--336.
+doi:\href{https://doi.org/10.1007/s10641-006-9107-3}{10.1007/s10641-006-9107-3}.
+
+\hypertarget{ref-campana_bomb_2002}{}
+Campana, S.E., Natanson, L.J. and Myklevoll, S. (2002) Bomb dating and
+age determination of large pelagic sharks. \emph{Canadian Journal of
+Fisheries and Aquatic Sciences} \textbf{59}, 450--455.
+doi:\href{https://doi.org/10.1139/f02-027}{10.1139/f02-027}.
+
+\hypertarget{ref-casey_revised_1992}{}
+Casey, J.G. and Natanson, L.J. (1992) Revised estimates of age and
+growth of the sandbar shark (\emph{Carcharhinus plumbeus}) from the
+western North-Atlantic. \emph{Canadian Journal of Fisheries and Aquatic
+Sciences} \textbf{49}, 1474--1477.
+doi:\href{https://doi.org/10.1139/f92-162}{10.1139/f92-162}.
+
+\hypertarget{ref-cassoff_changes_2007}{}
+Cassoff, R.M., Campana, S.E. and Myklevoll, S. (2007) Changes in
+baseline growth and maturation parameters of Northwest Atlantic
+porbeagle, \emph{Lamna nasus}, following heavy exploitation.
+\emph{Canadian Journal of Fisheries and Aquatic Sciences} \textbf{64},
+19--29. doi:\href{https://doi.org/10.1139/F06-167}{10.1139/F06-167}.
+
+\hypertarget{ref-chin_validated_2013}{}
+Chin, A., Simpfendorfer, C., Tobin, A. and Heupel, M. (2013) Validated
+age, growth and reproductive biology of \emph{Carcharhinus
+melanopterus}, a widely distributed and exploited reef shark.
+\emph{Marine and Freshwater Research} \textbf{64}, 965--975.
+doi:\href{https://doi.org/10.1071/MF13017}{10.1071/MF13017}.
+
+\hypertarget{ref-cortes_incorporating_2002}{}
+Cortés, E. (2002) Incorporating uncertainty into demographic modeling:
+Application to shark populations and their conservation.
+\emph{Conservation Biology} \textbf{16}, 1048--1062.
+doi:\href{https://doi.org/10.1046/j.1523-1739.2002.00423.x}{10.1046/j.1523-1739.2002.00423.x}.
+
+\hypertarget{ref-cortes_life_2000}{}
+Cortés, E. (2000) Life history patterns and correlations in sharks.
+\emph{Reviews in Fisheries Science} \textbf{8}, 299--344.
+doi:\href{https://doi.org/10.1080/10408340308951115}{10.1080/10408340308951115}.
+
+\hypertarget{ref-cortes_perspectives_2016}{}
+Cortés, E. (2016) Perspectives on the intrinsic rate of population
+growth. \emph{Methods in Ecology and Evolution} \textbf{7}, 1136--1145.
+doi:\href{https://doi.org/10.1111/2041-210X.12592}{10.1111/2041-210X.12592}.
+
+\hypertarget{ref-cortes_population_2012}{}
+Cortés, E., Brooks, E.N. and Gedamke, T. (2012) Population dynamics,
+demography, and stock assessment. In: \emph{Biology of Sharks and Their
+Relatives, Second Edition}. (eds J.C. Carrier, J.A. Musick and M.R.
+Heithaus). CRC Press, New York, pp 453--86.
+
+\hypertarget{ref-davenport_age_1988}{}
+Davenport, S. and Stevens, J.D. (1988) Age and growth of two
+commercially important sharks (\emph{Carcharhinus tilstoni} and \emph{C.
+sorrah}) from Northern Australia. \emph{Australian Journal of Marine and
+Freshwater Research} \textbf{39}, 417--433.
+doi:\href{https://doi.org/10.1071/MF9880417}{10.1071/MF9880417}.
+
+\hypertarget{ref-dean_mineralized_2006}{}
+Dean, M. and Summers, A. (2006) Mineralized cartilage in the skeleton of
+cartilaginous fishes. \emph{Zoology} \textbf{109}, 164--168.
+doi:\href{https://doi.org/10.1016/j.zool.2006.03.002}{10.1016/j.zool.2006.03.002}.
+
+\hypertarget{ref-dulvy_methods_2004}{}
+Dulvy, N.K., Ellis, J.R., Goodwin, N.B., Grant, A., Reynolds, J.D. and
+Jennings, S. (2004) Methods of assessing extinction risk in marine
+fishes. \emph{Fish and Fisheries} \textbf{5}, 255--276.
+doi:\href{https://doi.org/10.1111/j.1467-2679.2004.00158.x}{10.1111/j.1467-2679.2004.00158.x}.
+
+\hypertarget{ref-dulvy_extinction_2014}{}
+Dulvy, N.K., Fowler, S.L., Musick, J.A., Cavanagh, R.D., Kyne, P.M.,
+Harrison, L.R., Carlson, J.K., Davidson, L.N., Fordham, S.V., Francis,
+M.P., Pollock, C.M., Simpfendorfer, C.A., Burgess, G.H., Carpenter,
+K.E., Compagno, L.J., Ebert, D.A., Gibson, C., Heupel, M.R.,
+Livingstone, S.R., Sanciangco, J.C., Stevens, J.D., Valenti, S. and
+White, W.T. (2014) Extinction risk and conservation of the world's
+sharks and rays. \emph{eLife} \textbf{3}, e00590.
+doi:\href{https://doi.org/10.7554/eLife.00590}{10.7554/eLife.00590}.
+
+\hypertarget{ref-dulvy_challenges_2017}{}
+Dulvy, N.K., Simpfendorfer, C.A., Davidson, L.N., Fordham, S.V.,
+Bräutigam, A., Sant, G. and Welch, D.J. (2017) Challenges and priorities
+in shark and ray conservation. \emph{Current Biology} \textbf{27},
+R565--R572.
+doi:\href{https://doi.org/10.1016/j.cub.2017.04.038}{10.1016/j.cub.2017.04.038}.
+
+\hypertarget{ref-dwyer_age_2016}{}
+Dwyer, K.S., Treble, M.A. and Campana, S.E. (2016) Age and growth of
+Greenland Halibut (\emph{Reinhardtius hippoglossoides}) in the Northwest
+Atlantic: A changing perception based on bomb radiocarbon analyses.
+\emph{Fisheries Research} \textbf{179}, 342--350.
+doi:\href{https://doi.org/10.1016/j.fishres.2016.01.016}{10.1016/j.fishres.2016.01.016}.
+
+\hypertarget{ref-feldheim_two_2014}{}
+Feldheim, K.A., Gruber, S.H., DiBattista, J.D., Babcock, E.A., Kessel,
+S.T., Hendry, A.P., Pikitch, E.K., Ashley, M.V. and Chapman, D.D. (2014)
+Two decades of genetic profiling yields first evidence of natal
+philopatry and long-term fidelity to parturition sites in sharks.
+\emph{Molecular Ecology} \textbf{23}, 110--117.
+doi:\href{https://doi.org/10.1111/mec.12583}{10.1111/mec.12583}.
+
+\hypertarget{ref-fischer_review_2012}{}
+Fischer, J., Erikstein, K., D'Offay, B., Guggisberg, S. and Barone, M.
+(2012) Review of the implementation of the International Plan of Action
+for the Conservation and Management of Sharks. No. 1076, 120 pp. FAO,
+Rome.
+
+\hypertarget{ref-francis_age_2007}{}
+Francis, M.P., Campana, S.E. and Jones, C.M. (2007) Age under-estimation
+in New Zealand porbeagle sharks (\emph{Lamna nasus}): Is there an upper
+limit to ages that can be determined from shark vertebrae? \emph{Marine
+and Freshwater Research} \textbf{58}, 10--23.
+doi:\href{https://doi.org/10.1071/MF06069}{10.1071/MF06069}.
+
+\hypertarget{ref-frazier_validated_2014}{}
+Frazier, B., Driggers, W., Adams, D., Jones, C. and Loefer, J. (2014)
+Validated age, growth and maturity of the bonnethead \emph{Sphyrna
+tiburo} in the western North Atlantic Ocean. \emph{Journal of fish
+biology} \textbf{85}, 688--712.
+doi:\href{https://doi.org/10.1111/jfb.12450}{10.1111/jfb.12450}.
+
+\hypertarget{ref-frisk_life_2005}{}
+Frisk, M.G., Miller, T.J. and Dulvy, N.K. (2005) Life histories and
+vulnerability to exploitation of elasmobranchs: Inferences from
+elasticity, pertubation and phylogenetic analyses. \emph{Journal of
+Northwest Atlantic Fishery Science} \textbf{35}, 27--45.
+
+\hypertarget{ref-frisk_estimation_2001}{}
+Frisk, M.G., Miller, T.J. and Fogarty, M.J. (2001) Estimation and
+analysis of biological parameters in elasmobranch fishes: A comparative
+life history study. \emph{Canadian Journal of Fisheries and Aquatic
+Sciences} \textbf{58}, 969--981.
+doi:\href{https://doi.org/10.1139/f01-051}{10.1139/f01-051}.
+
+\hypertarget{ref-garcia_importance_2008}{}
+García, V.B., Lucifora, L.O. and Myers, R.A. (2008) The importance of
+habitat and life history to extinction risk in sharks, skates, rays and
+chimaeras. \emph{Proceedings of the Royal Society B: Biological
+Sciences} \textbf{275}, 83--89.
+doi:\href{https://doi.org/10.1098/rspb.2007.1295}{10.1098/rspb.2007.1295}.
+
+\hypertarget{ref-geraghty_micro-computed_2012}{}
+Geraghty, P., Jones, A., Stewart, J. and Macbeth, W. (2012)
+Micro-computed tomography: An alternative method for shark ageing.
+\emph{Journal of fish biology} \textbf{80}, 1292--1299.
+doi:\href{https://doi.org/10.1111/j.1095-8649.2011.03188.x}{10.1111/j.1095-8649.2011.03188.x}.
+
+\hypertarget{ref-goldman_assessing_2012}{}
+Goldman, K.J., Cailliet, G.M., Andrews, A.H. and Natanson, L.J. (2012)
+Assessing the age and growth of chondrichthyan fishes. In: \emph{Biology
+of Sharks and Their Relatives, Second Edition}. (eds J.C. Carrier, J.A.
+Musick and M.R. Heithaus). CRC Press, New York, pp 423--451.
+
+\hypertarget{ref-gunn_age_2008}{}
+Gunn, J.S., Clear, N.P., Carter, T.I., Rees, A.J., Stanley, C.A.,
+Farley, J.H. and Kalish, J.M. (2008) Age and growth in southern bluefin
+tuna, \emph{Thunnus maccoyii} (Castelnau): Direct estimation from
+otoliths, scales and vertebrae. \emph{Fisheries Research} \textbf{92},
+207--220.
+doi:\href{https://doi.org/10.1016/j.fishres.2008.01.018}{10.1016/j.fishres.2008.01.018}.
+
+\hypertarget{ref-hamady_vertebral_2014}{}
+Hamady, L.L., Natanson, L.J., Skomal, G.B. and Thorrold, S.R. (2014)
+Vertebral bomb radiocarbon suggests extreme longevity in white sharks.
+\emph{PLoS One} \textbf{9}, e84006.
+doi:\href{https://doi.org/10.1371/journal.pone.0084006}{10.1371/journal.pone.0084006}.
+
+\hypertarget{ref-hammerschlag_killing_2011}{}
+Hammerschlag, N. and Sulikowski, J. (2011) Killing for conservation: The
+need for alternatives to lethal sampling of apex predatory sharks.
+\emph{Endangered Species Research} \textbf{14}, 135--140.
+
+\hypertarget{ref-harry_age_2013}{}
+Harry, A.V., Tobin, A.J. and Simpfendorfer, C.A. (2013) Age, growth and
+reproductive biology of the spot-tail shark, \emph{Carcharhinus sorrah},
+and the Australian blacktip shark, \emph{Carcharhinus tilstoni}, from
+the Great Barrier Reef World Heritage Area, north-eastern Australia.
+\emph{Marine and Freshwater Research} \textbf{64}, 277--293.
+doi:\href{https://doi.org/10.1071/MF12142}{10.1071/MF12142}.
+
+\hypertarget{ref-hobday_ecological_2011}{}
+Hobday, A.J., Smith, A.D.M., Stobutzki, I.C., Bulman, C., Daley, R.,
+Dambacher, J.M., Deng, R.A., Dowdney, J., Fuller, M., Furlani, D.,
+Griffiths, S.P., Johnson, D., Kenyon, R., Knuckey, I.A., Ling, S.D.,
+Pitcher, R., Sainsbury, K.J., Sporcic, M., Smith, T., Turnbull, C.,
+Walker, T.I., Wayte, S.E., Webb, H., Williams, A., Wise, B.S. and Zhou,
+S. (2011) Ecological risk assessment for the effects of fishing.
+\emph{Fisheries Research} \textbf{108}, 372--384.
+doi:\href{https://doi.org/10.1016/j.fishres.2011.01.013}{10.1016/j.fishres.2011.01.013}.
+
+\hypertarget{ref-holden_age_1973}{}
+Holden, M. and Vince, M. (1973) Age validation studies on the centra of
+\emph{Raja clavata} using tetracycline. \emph{Journal du Conseil}
+\textbf{35}, 13--17.
+doi:\href{https://doi.org/10.1093/icesjms/35.1.13}{10.1093/icesjms/35.1.13}.
+
+\hypertarget{ref-hutchings_life-history_2012}{}
+Hutchings, J.A., Myers, R.A., García, V.B., Lucifora, L.O. and
+Kuparinen, A. (2012) Life-history correlates of extinction risk and
+recovery potential. \emph{Ecological Applications} \textbf{22},
+1061--1067.
+doi:\href{https://doi.org/10.1890/11-1313.1}{10.1890/11-1313.1}.
+
+\hypertarget{ref-irvine_surface_2006}{}
+Irvine, S.B., Stevens, J.D. and Laurenson, L.J. (2006) Surface bands on
+deepwater squalid dorsal-fin spines: An alternative method for ageing
+\emph{Centroselachus crepidater}. \emph{Canadian Journal of Fisheries
+and Aquatic Sciences} \textbf{63}, 617--627.
+doi:\href{https://doi.org/10.1139/f05-237}{10.1139/f05-237}.
+
+\hypertarget{ref-izzo_incorporation_2007}{}
+Izzo, C., Rodda, K. and Bolton, T. (2007) Incorporation time of
+oxytetracycline into calcified structures of the elasmobranch
+\emph{Heterodontus portusjacksoni}. \emph{Journal of Fish Biology}
+\textbf{71}, 1208--1214.
+doi:\href{https://doi.org/10.1111/j.1095-8649.2007.01574.x}{10.1111/j.1095-8649.2007.01574.x}.
+
+\hypertarget{ref-kalish_determination_2001}{}
+Kalish, J. and Johnston, J. (2001) Determination of school shark age
+based on analysis of radiocarbon in vertebral collagen. In: \emph{Use of
+the bomb radiocarbon chronometer to validate fish age. Final Report.
+FRDC Project 93/109}. pp 116--129.
+
+\hypertarget{ref-kalish_pre-and_1993}{}
+Kalish, J.M. (1993) Pre-and post-bomb radiocarbon in fish otoliths.
+\emph{Earth and Planetary Science Letters} \textbf{114}, 549--554.
+doi:\href{https://doi.org/10.1016/0012-821X(93)90082-K}{10.1016/0012-821X(93)90082-K}.
+
+\hypertarget{ref-kenchington_natural_2014}{}
+Kenchington, T.J. (2014) Natural mortality estimators for
+information-limited fisheries. \emph{Fish and Fisheries} \textbf{15},
+533--562.
+doi:\href{https://doi.org/10.1111/faf.12027}{10.1111/faf.12027}.
+
+\hypertarget{ref-kerr_investigations_2006}{}
+Kerr, L.A., Andrews, A.H., Cailliet, G.M., Brown, T.A. and Coale, K.H.
+(2006) Investigations of \(\Delta\) 14C, \(\delta\) 13C, and \(\delta\)
+15N in vertebrae of white shark (\emph{Carcharodon carcharias}) from the
+eastern North Pacific Ocean. \emph{Environmental Biology of Fishes}
+\textbf{77}, 337--353.
+doi:\href{https://doi.org/10.1007/s10641-006-9125-1}{10.1007/s10641-006-9125-1}.
+
+\hypertarget{ref-kinney_oxytetracycline_2016}{}
+Kinney, M., Wells, R. and Kohin, S. (2016) Oxytetracycline age
+validation of an adult shortfin mako shark \emph{Isurus oxyrinchus}
+after 6 years at liberty. \emph{Journal of Fish Biology} \textbf{89},
+1828--1833.
+doi:\href{https://doi.org/10.1111/jfb.13044}{10.1111/jfb.13044}.
+
+\hypertarget{ref-kneebone_using_2008}{}
+Kneebone, J., Natanson, L., Andrews, A. and Howell, W. (2008) Using bomb
+radiocarbon analyses to validate age and growth estimates for the tiger
+shark, \emph{Galeocerdo cuvier}, in the western North Atlantic.
+\emph{Marine Biology} \textbf{154}, 423--434.
+doi:\href{https://doi.org/10.1007/s00227-008-0934-y}{10.1007/s00227-008-0934-y}.
+
+\hypertarget{ref-kusher_validated_1992}{}
+Kusher, D.I., Smith, S.E. and Cailliet, G.M. (1992) Validated age and
+growth of the leopard shark, \emph{Triakis semifasciata}, with comments
+on reproduction. \emph{Environmental Biology of Fishes} \textbf{35},
+187--203.
+doi:\href{https://doi.org/10.1007/BF00002193}{10.1007/BF00002193}.
+
+\hypertarget{ref-maunder_review_2013}{}
+Maunder, M.N. and Punt, A.E. (2013) A review of integrated analysis in
+fisheries stock assessment. \emph{Fisheries Research} \textbf{142},
+61--74.
+doi:\href{https://doi.org/10.1016/j.fishres.2012.07.025}{10.1016/j.fishres.2012.07.025}.
+
+\hypertarget{ref-maurer_life_2009}{}
+Maurer, J. (2009) Life history of two Bering Sea slope skates:
+\emph{Bathyraja lindbergi} and \emph{B. maculata}. Masters Thesis.
+California State University, Montery Bay.
+
+\hypertarget{ref-mcauley_validated_2006}{}
+McAuley, R.B., Simpfendorfer, C.A., Hyndes, G.A., Allison, R.R.,
+Chidlow, J.A., Newman, S.J. and Lenanton, R.C.J. (2006) Validated age
+and growth of the sandbar shark, \emph{Carcharhinus plumbeus} (Nardo
+1827) in the waters off Western Australia. \emph{Environmental Biology
+of Fishes} \textbf{77}, 385--400.
+doi:\href{https://doi.org/10.1007/s10641-006-9126-0}{10.1007/s10641-006-9126-0}.
+
+\hypertarget{ref-mcfarlane_validation_1987}{}
+McFarlane, G.A. and Beamish, R.J. (1987) Validation of the dorsal spine
+method of age determination for spiny dogfish. \emph{Age and Growth of
+Fish. Iowa State University Press, Ames, Iowa}, 287--300.
+
+\hypertarget{ref-mcphie_bomb_2009}{}
+McPhie, R.P. and Campana, S.E. (2009) Bomb dating and age determination
+of skates (family Rajidae) off the eastern coast of Canada. \emph{ICES
+Journal of Marine Science} \textbf{66}, 546--560.
+doi:\href{https://doi.org/10.1093/icesjms/fsp002}{10.1093/icesjms/fsp002}.
+
+\hypertarget{ref-melvin_high_2010}{}
+Melvin, G.D. and Campana, S.E. (2010) High resolution bomb dating for
+testing the accuracy of age interpretations for a short-lived pelagic
+fish, the Atlantic herring. \emph{Environmental biology of fishes}
+\textbf{89}, 297--311.
+doi:\href{https://doi.org/10.1007/s10641-010-9663-4}{10.1007/s10641-010-9663-4}.
+
+\hypertarget{ref-morales-nin_review_2000}{}
+Morales-Nin, B. (2000) Review of the growth regulation processes of
+otolith daily increment formation. \emph{Fisheries Research}
+\textbf{46}, 53--67.
+doi:\href{https://doi.org/10.1016/S0165-7836(00)00133-8}{10.1016/S0165-7836(00)00133-8}.
+
+\hypertarget{ref-moulton_age_1992}{}
+Moulton, P.L., Walker, T.I. and Saddlier, S.R. (1992) Age and
+growth-studies of gummy shark, \emph{Mustelus antarcticus} Gunther, and
+school shark, \emph{Galeorhinus galeus} (Linnaeus), from Southern
+Australian waters. \emph{Australian Journal of Marine and Freshwater
+Research} \textbf{43}, 1241--1267.
+doi:\href{https://doi.org/10.1071/MF9921241}{10.1071/MF9921241}.
+
+\hypertarget{ref-natanson_effect_1993}{}
+Natanson, L.J. (1993) Effect of temperature on band deposition in the
+little skate, \emph{Raja erinacea}. \emph{Copeia} \textbf{1}, 199--206.
+doi:\href{https://doi.org/10.2307/1446311}{10.2307/1446311}.
+
+\hypertarget{ref-natanson_age_2015}{}
+Natanson, L.J. and Skomal, G.B. (2015) Age and growth of the white
+shark, \emph{Carcharodon carcharias}, in the western North Atlantic
+Ocean. \emph{Marine and Freshwater Research} \textbf{66}, 387--398.
+doi:\href{https://doi.org/10.1071/MF14127}{10.1071/MF14127}.
+
+\hypertarget{ref-natanson_validated_2014}{}
+Natanson, L.J., Gervelis, B.J., Winton, M.V., Hamady, L.L., Gulak, S.J.
+and Carlson, J.K. (2014) Validated age and growth estimates for
+\emph{Carcharhinus obscurus} in the northwestern Atlantic Ocean, with
+pre-and post management growth comparisons. \emph{Environmental Biology
+of Fishes} \textbf{97}, 881--896.
+doi:\href{https://doi.org/10.1007/s10641-013-0189-4}{10.1007/s10641-013-0189-4}.
+
+\hypertarget{ref-natanson_analysis_2016}{}
+Natanson, L.J., Hamady, L.L. and Gervelis, B.J. (2016) Analysis of bomb
+radiocarbon data for common thresher sharks, \emph{Alopias vulpinus}, in
+the northwestern Atlantic Ocean with revised growth curves.
+\emph{Environmental Biology of Fishes} \textbf{99}, 39--47.
+doi:\href{https://doi.org/10.1007/s10641-015-0452-y}{10.1007/s10641-015-0452-y}.
+
+\hypertarget{ref-natanson_validated_2006}{}
+Natanson, L.J., Kohler, N.E., Ardizzone, D., Cailliet, G.M., Wintner,
+S.P. and Mollet, H.F. (2006) Validated age and growth estimates for the
+shortfin mako, \emph{Isurus oxyrinchus}, in the North Atlantic Ocean.
+\emph{Environmental Biology of Fishes} \textbf{77}, 367--383.
+doi:\href{https://doi.org/10.1007/s10641-006-9127-z}{10.1007/s10641-006-9127-z}.
+
+\hypertarget{ref-officer_captive_1997}{}
+Officer, R.A., Day, R.W., Clement, J.G. and Brown, L.P. (1997) Captive
+gummy sharks, \emph{Mustelus antarcticus}, form hypermineralised bands
+in their vertebrae during winter. \emph{Canadian Journal of Fisheries
+and Aquatic Sciences} \textbf{54}, 2677--2683.
+doi:\href{https://doi.org/10.1139/f97-157}{10.1139/f97-157}.
+
+\hypertarget{ref-officer_sources_1996}{}
+Officer, R.A., Gason, A.S., Walker, T.I. and Clement, J.G. (1996)
+Sources of variation in counts of growth increments in vertebrae from
+gummy shark,(\emph{Mustelus antarcticus}, and school shark,
+\emph{Galeorhinus galeus}): Implications for age determination.
+\emph{Canadian Journal of Fisheries and Aquatic Sciences} \textbf{53},
+1765--1777. doi:\href{https://doi.org/10.1139/f96-103}{10.1139/f96-103}.
+
+\hypertarget{ref-pardo_maximum_2016}{}
+Pardo, S.A., Kindsvater, H.K., Reynolds, J.D. and Dulvy, N.K. (2016)
+Maximum intrinsic rate of population increase in sharks, rays, and
+chimaeras: The importance of survival to maturity. \emph{Canadian
+Journal of Fisheries and Aquatic Sciences} \textbf{73}, 1159--1163.
+doi:\href{https://doi.org/10.1139/cjfas-2016-0069}{10.1139/cjfas-2016-0069}.
+
+\hypertarget{ref-passerotti_maximum_2014}{}
+Passerotti, M., Andrews, A., Carlson, J., Wintner, S., Goldman, K. and
+Natanson, L. (2014) Maximum age and missing time in the vertebrae of
+sand tiger shark (\emph{Carcharias taurus}): Validated lifespan from
+bomb radiocarbon dating in the western North Atlantic and southwestern
+Indian Oceans. \emph{Marine and Freshwater Research} \textbf{65},
+674--687. doi:\href{https://doi.org/10.1071/MF13214}{10.1071/MF13214}.
+
+\hypertarget{ref-patrick_using_2010}{}
+Patrick, W.S., Spencer, P., Link, J., Cope, J., Field, J., Kobayashi,
+D., Lawson, P., Gedamke, T., Cortés, E., Ormseth, O. and others (2010)
+Using productivity and susceptibility indices to assess the
+vulnerability of United States fish stocks to overfishing. \emph{Fishery
+Bulletin} \textbf{108}, 305--322.
+
+\hypertarget{ref-payan_endolymph_2004}{}
+Payan, P., De Pontual, H., Bœuf, G. and Mayer-Gostan, N. (2004)
+Endolymph chemistry and otolith growth in fish. \emph{Comptes Rendus
+Palevol} \textbf{3}, 535--547.
+doi:\href{https://doi.org/10.1016/j.crpv.2004.07.013}{10.1016/j.crpv.2004.07.013}.
+
+\hypertarget{ref-pierce_validated_2009}{}
+Pierce, S.J. and Bennett, M.B. (2009) Validated annual band-pair
+periodicity and growth parameters of blue-spotted maskray
+\emph{Neotrygon kuhlii} from south-east Queensland, Australia.
+\emph{Journal of Fish Biology} \textbf{75}, 2490--2508.
+doi:\href{https://doi.org/10.1111/j.1095-8649.2009.02435.x}{10.1111/j.1095-8649.2009.02435.x}.
+
+\hypertarget{ref-porter_contribution_2007}{}
+Porter, M.E., Koob, T.J. and Summers, A.P. (2007) The contribution of
+mineral to the material properties of vertebral cartilage from the
+smooth-hound shark \emph{Mustelus californicus}. \emph{Journal of
+Experimental Biology} \textbf{210}, 3319--3327.
+doi:\href{https://doi.org/10.1242/jeb.006189}{10.1242/jeb.006189}.
+
+\hypertarget{ref-prince_proceedings_1983}{}
+Prince, E. and Pulos, L. (1983) Proceedings of the International
+Workshop on Age Determination of Oceanic Pelagic Fishes: Tunas,
+Billfishes, and Sharks. 1982. 211 pp. NOAA Technical Report NMFS 8.
+
+\hypertarget{ref-r_core_team_r:_2016}{}
+R Core Team (2016) \emph{R: A Language and Environment for Statistical
+Computing}. R Foundation for Statistical Computing, Vienna, Austria.
+
+\hypertarget{ref-raoult_strontium_2016}{}
+Raoult, V., Peddemors, V.M., Zahra, D., Howell, N., Howard, D.L., De
+Jonge, M.D. and Williamson, J.E. (2016) Strontium mineralization of
+shark vertebrae. \emph{Scientific Reports} \textbf{6}.
+doi:\href{https://doi.org/10.1038/srep29698}{10.1038/srep29698}.
+
+\hypertarget{ref-ridewood_calcification_1921}{}
+Ridewood, W.G. (1921) On the calcification of the vertebral centra in
+sharks and rays. \emph{Philosophical Transactions of the Royal Society
+of London. Series B, Containing Papers of a Biological Character}
+\textbf{210}, 311--407.
+
+\hypertarget{ref-rien_accuracy_1994}{}
+Rien, T.A. and Beamesderfer, R.C. (1994) Accuracy and precision of white
+sturgeon age estimates from pectoral fin rays. \emph{Transactions of the
+American Fisheries Society} \textbf{123}, 255--265.
+doi:\href{https://doi.org/10.1577/1548-8659(1994)123\%3C0255:AAPOWS\%3E2.3.CO;2}{10.1577/1548-8659(1994)123\textless{}0255:AAPOWS\textgreater{}2.3.CO;2}.
+
+\hypertarget{ref-robbins_ongoing_2006}{}
+Robbins, W.D., Hisano, M., Connolly, S.R. and Choat, J.H. (2006) Ongoing
+collapse of coral-reef shark populations. \emph{Current Biology}
+\textbf{16}, 2314--2319.
+doi:\href{https://doi.org/10.1016/j.cub.2006.09.044}{10.1016/j.cub.2006.09.044}.
+
+\hypertarget{ref-secor_validation_1995}{}
+Secor, D.H., Trice, T. and Hornick, H. (1995) Validation of
+otolith-based ageing and a comparison of otolith and scale-based ageing
+in mark-recaptured Chesapeake Bay striped bass, \emph{Morone saxatilis}.
+\emph{Fishery Bulletin} \textbf{93}, 186--190.
+
+\hypertarget{ref-simpfendorfer_mortality_1999}{}
+Simpfendorfer, C.A. (1999) Mortality estimates and demographic analysis
+for the Australian sharpnose shark, \emph{Rhizoprionodon taylori}, from
+northern Australia. \emph{Fishery Bulletin} \textbf{97}, 978--986.
+
+\hypertarget{ref-skalski_effects_2008}{}
+Skalski, J.R., Millspaugh, J.J. and Ryding, K.E. (2008) Effects of
+asymptotic and maximum age estimates on calculated rates of population
+change. \emph{Ecological Modelling} \textbf{212}, 528--535.
+doi:\href{https://doi.org/10.1016/j.ecolmodel.2007.11.012}{10.1016/j.ecolmodel.2007.11.012}.
+
+\hypertarget{ref-smith_age_1995}{}
+Smith, D.C., Robertson, S.G., Fenton, G.E. and Short, S.A. (1995) Age
+determination and growth of orange roughy (\emph{Hoplostethus
+atlanticus}): A comparison of annulus counts with radiometric ageing.
+\emph{Canadian Journal of Fisheries and Aquatic Sciences} \textbf{52},
+391--401. doi:\href{https://doi.org/10.1139/f95-041}{10.1139/f95-041}.
+
+\hypertarget{ref-smith_timing_1984}{}
+Smith, S.E. (1984) Timing of vertebral-band deposition in
+tetracycline-injected leopard sharks. \emph{Transactions of the American
+Fisheries Society} \textbf{113}, 308--313.
+doi:\href{https://doi.org/10.1577/1548-8659(1984)113\%3C308:TOVDIT\%3E2.0.CO;2}{10.1577/1548-8659(1984)113\textless{}308:TOVDIT\textgreater{}2.0.CO;2}.
+
+\hypertarget{ref-smith_intrinsic_1998}{}
+Smith, S.E., Au, D.W. and Show, C. (1998) Intrinsic rebound potentials
+of 26 species of Pacific sharks. \emph{Marine and Freshwater Research}
+\textbf{49}, 663--678.
+doi:\href{https://doi.org/10.1071/MF97135}{10.1071/MF97135}.
+
+\hypertarget{ref-smith_age-validation_2003}{}
+Smith, S.E., Mitchell, R.A. and Fuller, D. (2003) Age-validation of a
+leopard shark (\emph{Triakis semifasciata}) recaptured after 20 years.
+\emph{Fishery Bulletin} \textbf{101}, 194--198.
+
+\hypertarget{ref-taylor_spine-based_2013}{}
+Taylor, I.G., Gertseva, V. and Matson, S.E. (2013) Spine-based ageing
+methods in the spiny dogfish shark, \emph{Squalus suckleyi}: How they
+measure up. \emph{Fisheries Research} \textbf{147}, 83--92.
+doi:\href{https://doi.org/10.1016/j.fishres.2013.04.011}{10.1016/j.fishres.2013.04.011}.
+
+\hypertarget{ref-then_evaluating_2014}{}
+Then, A.Y., Hoenig, J.M., Hall, N.G. and Hewitt, D.A. (2014) Evaluating
+the predictive performance of empirical estimators of natural mortality
+rate using information on over 200 fish species. \emph{ICES Journal of
+Marine Science: Journal du Conseil}, fsu136.
+doi:\href{https://doi.org/10.1093/icesjms/fsu136}{10.1093/icesjms/fsu136}.
+
+\hypertarget{ref-thorson_gear_2009}{}
+Thorson, J.T. and Simpfendorfer, C.A. (2009) Gear selectivity and sample
+size effects on growth curve selection in shark age and growth studies.
+\emph{Fisheries Research} \textbf{98}, 75--84.
+doi:\href{https://doi.org/10.1016/j.fishres.2009.03.016}{10.1016/j.fishres.2009.03.016}.
+
+\hypertarget{ref-walker_age_2001}{}
+Walker, T.I., Brown, L.P. and Clement, J.G. (2001) Age validation from
+tagged school and gummy sharks injected with oxytetracycline, FRDC
+Project No. 97/110, Final Report to Fisheries Research and Development
+Corporation. 30 pp.
+
+\hypertarget{ref-walker_phenomenon_1998}{}
+Walker, T.I., Taylor, B.L., Hudson, R.J. and Cottier, J.P. (1998) The
+phenomenon of apparent change of growth rate in gummy shark
+(\emph{Mustelus antarcticus}) harvested off southern Australia.
+\emph{Fisheries Research} \textbf{39}, 139--163.
+doi:\href{https://doi.org/10.1016/S0165-7836(98)00180-5}{10.1016/S0165-7836(98)00180-5}.
+
+\hypertarget{ref-xiao_relationship_2002}{}
+Xiao, Y.S. (2002) Relationship among models for yield per recruit
+analysis, models for demographic analysis, and age- and time-dependent
+stock assessment models. \emph{Ecological Modelling} \textbf{155},
+95--125.
+doi:\href{https://doi.org/10.1016/S0304-3800(02)00028-5}{10.1016/S0304-3800(02)00028-5}.
+
+\hypertarget{ref-yule_how_2008}{}
+Yule, D.L., Stockwell, J.D., Black, J.A., Cullis, K.I., Cholwek, G.A.
+and Myers, J.T. (2008) How systematic age underestimation can impede
+understanding of fish population dynamics: Lessons learned from a Lake
+Superior Cisco stock. \emph{Transactions of the American Fisheries
+Society} \textbf{137}, 481--495.
+doi:\href{https://doi.org/10.1577/T07-068.1}{10.1577/T07-068.1}.
+
+\hypertarget{ref-zhou_linking_2012}{}
+Zhou, S., Yin, S., Thorson, J.T., Smith, A.D. and Fuller, M. (2012)
+Linking fishing mortality reference points to life history traits: An
+empirical study. \emph{Canadian Journal of Fisheries and Aquatic
+Sciences} \textbf{69}, 1292--1301.
+doi:\href{https://doi.org/10.1139/f2012-060}{10.1139/f2012-060}.
+
+
+\end{document}

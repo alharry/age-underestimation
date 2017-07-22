@@ -1,0 +1,90 @@
+---
+output: 
+  pdf_document:
+    keep_tex: true
+geometry: 
+    - bottom=1.5cm
+    - top=1.5cm
+    - left=1.5cm
+    - right=1.5cm
+header-includes:
+    - \fontsize{8}{20}
+    - \usepackage{lscape}
+    - \pagenumbering{gobble} 
+tables: true
+---
+
+##Tables
+
+```{r setup, include=FALSE}
+source("../analysis/setup.R")
+source("../analysis/data prep.R")
+source("../analysis/summary.R")
+```
+
+
+```{r Table1,results='asis'}
+Table1 <- read_csv("../data/definitions.csv") %>% xtable(caption = "Terms used throughout this paper and to classify components of lifespan validated in age determination studies. An example of each term is given for New Zealand porbeagle sharks (Francis \\emph{et al.} 2007).\\newline", align = c("p{0.1cm}","p{4cm}","p{9cm}","p{2.5cm}"))
+print(Table1, type = "latex", caption.placement = "top", comment = F, include.rownames = F, sanitize.text.function = identity,booktabs = T)
+```
+
+\newpage
+\begin{landscape}
+```{r Table 2, results='asis'}
+Table2 <- filter(data, Age.underestimation %in% c("Yes", "Maybe")) %>%
+  arrange(Method, Species) %>%
+  mutate(Study = paste(Author," (",Year,")", sep = "")) %>%
+  mutate(Study2 = as.numeric(factor(Study)))
+
+Messages <- select(Table2, Study2, Study) %>%
+  arrange(Study2) %>%
+  mutate(Study = str_replace(Study, "et al", "\\\\textit{et al.}")) %>%
+  mutate(Study = paste0("\\textsuperscript{", Study2, "}{", Study, "}")) %>%
+  select(Study)
+  
+Table2 <- mutate(Table2, Species = paste0("\\textit{", Species, "} \\textsuperscript{", Study2, "}")) %>%
+  mutate(Rationale = str_replace(Rationale, "C14", paste0("$\\^{14}$", "C"))) %>%
+  mutate(Rationale = str_replace(Rationale, "et al", "\\\\textit{et al.}")) %>%
+  mutate(Method = mapvalues(Method, from = c("Bomb radiocarbon", "Chemical"), to = 
+  c("Bomb carbon dating", "Chemical marking"))) %>%
+  mutate(`Validated ages` = paste0(Min.validated, "-", Max.validated)) %>%
+  select(Method, Species, Region, n, `Validated ages`, Max.vertebral.age, 
+  Max.actual.age, Magnitude.mean, Magnitude.max, Age.underestimation, Rationale) %>%
+  rename(`Apparent $A_{Max}$ (yrs)` = Max.vertebral.age,
+         `True $A_{Max}$ (yrs)` = Max.actual.age,
+         Evidence = Age.underestimation,
+         `$\\textit{n}$` = n,
+         `$\\Delta_{Mean}$ (yrs)` = Magnitude.mean,
+         `$\\Delta_{Max}$ (yrs)` = Magnitude.max,
+         `Validated ages (yrs)` = `Validated ages`) %>%
+  mutate(Evidence = mapvalues(Evidence, from = c("Yes","Maybe"), to = c("Likely", "Possible"))) %>%
+  mutate(`Validated ages (yrs)` = ifelse(`Validated ages (yrs)` %in% "0-0", NA, `Validated ages (yrs)`)) %>%
+  dlply("Method", identity) %>%
+  llply(select, -Method) %>%
+  `attr<-`("subheadings", paste0("Method: ", names(.))) %>%
+  `attr<-`("message", c(paste(Messages$Study[1:6], collapse="; "),
+                       paste(Messages$Study[7:12], collapse="; "),
+                       paste(Messages$Study[13:18], collapse="; "),
+                       paste(Messages$Study[19:21], collapse="; "))) %>%
+  xtableList(align = c("l","l","l","l","p{1.2cm}","p{1.2cm}","p{0.9cm}","p{0.9cm}","p{0.9cm}","l","p{8.5cm}"),
+         display = c("s","s","s","d","d","d","d","d","d","s","s"),
+         caption = "Evidence for age underestimation in bomb carbon dating and chemical marking age validation studies of sharks and rays. $n$ is sample size, $A_{Max}$ is longevity, $\\Delta_{Mean}$ and $\\Delta_{Max}$ are the mean and maximum differences between true and apparent age in individuals where age underestimation was detected. Regions: AUS/NZ - Australia and New Zealand; NEA - northeast Atlantic; NEP - northeast Pacific; NWA - northwest Atlantic; SA - South Africa.\\newline")
+print.xtableList(Table2, type = "latex", caption.placement = "top",
+      comment = F, include.rownames = F, sanitize.text.function = identity, booktabs = TRUE)
+```
+\end{landscape}
+
+\newpage
+```{r Table 3,results='asis'}
+GetPars <- function(x){OUT <- summary(x)$coefficients[c(1:2), c(1:2)] %>% t %>% c %>% data.frame %>% t %>% data.frame
+  names(OUT) <- c("$\\beta_1$", "S.E.", "$\\beta_2$", "S.E.")    
+  OUT$`$LL$` <- logLik(x)
+  return(OUT)}
+
+Table3 <- rbind(GetPars(m1), GetPars(m2)) %>%
+  `attr<-`("row.names",c("Length","Age")) %>%
+  xtable(caption = "Best fit parameters ($\\beta_1$ and $\\beta_2$), standard errors (S.E.), and negative log likelihood, ($LL$) for logistic regression models of incidence of age underestimation as function of relative length and age.\\newline")
+  
+print(Table3, type = "latex", caption.placement = "top",
+      comment = F, include.rownames = T, sanitize.text.function = identity, booktabs = TRUE)
+```

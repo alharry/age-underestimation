@@ -1,0 +1,218 @@
+---
+title: Supplementary Material
+output: 
+  pdf_document:
+    keep_tex: true
+linestretch: 2
+csl: "../references/fish-and-fisheries.csl"
+bibliography: "../references/Age underestimation.bib"
+header-includes:
+    - \pagenumbering{gobble}
+    - \usepackage{caption}
+tables: true
+---
+
+```{r setup, include = FALSE}
+source("../analysis/setup.R")
+source("../analysis/data prep.R")
+source("../analysis/summary.R")
+```
+
+## Hypothesised effects of age underestimation (Figure 4)
+The motivating examples in Figure 4 were based on data simulated for New Zealand porbeagle sharks [@francis_reproduction_2000; @francis_age_2007] (Table S1) using the methods described below. 
+
+\captionsetup[table]{labelformat=empty}
+```{r TS1, results = 'asis'}
+parnames <- c("$A_{Max}'$","$A_{Max}$","$L_{\\infty}$", "$k$", "$a_0$","$A_{Mat}$","$R$")
+parvals <-c("38 yrs","65 yrs","1822 mm", "0.112yr$^{-1}$", "-4.75 yrs", "16.5 yrs", "2 yrs")
+desc <-c("Apparent maximum age", "True maximum age", "Asymptotic length", "Growth coefficient",
+         "Age at length 0", "Age at maturity", "Duration of reproductive cycle")
+
+TableS1 <- data_frame(Parameter = parnames, Value = parvals, Description = desc) %>%
+  `attr<-`("row.names",rep(" ", length(desc))) %>%
+  xtable(caption="Table S1. Life history parameters for New Zealand porbeagle sharks.")
+  
+print(TableS1,type="latex",caption.placement="top",
+      comment=F,include.rownames=T, sanitize.text.function = identity, booktabs=TRUE)
+```
+
+###Facet (a)
+One effect of underestimating age is an apparent 'loss' of older individuals from the population that are incorrectly assigned younger ages. When fitting asymptotic growth models, this would effectively lead to a truncation of the observed data points around the asymptote, presumably making it more difficult to obtain unbiased parameter estimates. This could be exacerbated if sample sizes are small, as is often the case in shark and ray ageing studies. To illustrate this, an age-structured population of porbeagle sharks was simulated, where the numbers-at-age, $N_a$, were calculated as: $$N_a = N_{a-1}e^{-M}$$ where $M = 4.3/A_{Max}$ was used to approximate Hoenig's natural mortality estimator [@kenchington_natural_2014]. The age distribution was initialised with 1000 age zero individuals ($N_{0} = 1000$). Individual length-at-age, $L_a$ was modelled using the von Bertalanffy growth equation: $$L_{a} = L_\infty (1 - e^{-k(a-a_0)}) + \epsilon$$ where $L_\infty$ is asymptotic length, $k$ is the growth coefficient, $a_0$ is the hypothetical age at which length is zero, and where $\epsilon \sim N(0, \sigma^2)$ is a random normally distributed variable with mean of 0 and variance $\sigma^2$. As $\sigma$ was not provided in Francis *et al.* [-@francis_age_2007] it was nominally set to 50mm. Using the deterministic relationship in Francis *et al.* [-@francis_age_2007], apparent age, $a'$ , based on reading thin-sectioned vertebrae, was calculated as: $$ a' = \begin{cases}
+ & \text{ if } x<20, \quad a\\ 
+ & \text{ if } x\geq20, \quad 20 + (31.9 - 20)(1 - e^{-0.076 (a-20)}) 
+\end{cases}$$
+Length-specific probability of capture of individuals in the population to a hypothetical fishery was calculated assuming a logistic selectivity function of the form: $$ S_L = 1 - (L^{-\zeta})/(\psi^{-\zeta} + L^{-\zeta})$$ where $\psi = 1500$ mm FL and $\zeta = -5$ (i.e. individuals become vulnerable to the fishery at ~ 1500 mm FL). Twenty individuals were randomly sampled from the simulated data (weighted by logistic selectivity probabilities), and the von Bertalanffy growth model fit to both the length-at-true age and length-at-apparent age for comparison. 
+
+```{r figS1, fig.width = 3.5, fig.height = 3.25, fig.align = 'center'}
+# Quick simulation
+set.seed(1)
+# Parameters
+Amax = 65
+Linf = 1822
+t0 = - 4.75
+K = 0.112
+n0 <- 1000
+S50 <- 1500
+A50 <- 5
+M <- 4.3/65
+sigma <- 50
+Amat50 <- 16.5
+Freq = 1
+pups = 3.85
+
+a <- seq(0,Amax)
+n <- c(n0, round(cumprod(rep(exp(-M), length(a) - 1)) * n0))
+
+# Initialise length and age distributions for simulated age length data
+data<-data_frame(`True Age` = unlist(mapply(rep, a, n))) %>%
+ mutate(Length = Linf * (1 - exp(-K * (`True Age` - t0))) + rnorm(sum(n), 0, sigma)) %>%
+ mutate(Selectivity = 1 - (Length^-5)/(S50^-5 + Length^-5)) %>%
+ mutate(`Apparent Age` = ifelse(`True Age` < 20, `True Age`, 20 +
+ (31.9 - 20) * (1 - exp(-0.076 * (`True Age` - 20))))) %>%
+ sample_n(20, weight = Selectivity, replace = FALSE) %>%
+ gather(key = AgeGroup, value = Age, -Selectivity, -Length) %>%
+ mutate(AgeGroup = as.factor(AgeGroup)) %>%
+ mutate(AgeGroup = relevel(AgeGroup, "True Age"))
+
+# Fit 'true' and 'apparent' growth models
+true <- nls(Length ~ L0 + (Linf - L0) * (1 - exp(-k * Age)), data = filter(data, AgeGroup %in% "True Age"),
+ start = list(Linf = 200, k = 0.1, L0 = 750))
+
+apparent <- nls(Length ~ L0 + (Linf - L0) * (1 - exp(-k * Age)), data = filter(data, AgeGroup %in% "Apparent Age"),
+ start = list(Linf = 200, k = 0.1, L0 = 750))
+
+preds<-data.frame(Length=c(predict(true,newdata=list(Age=0:max(data$Age))),predict(apparent,newdata=list(Age=0:max(data$Age)))),Age=rep(0:max(data$Age),2),AgeGroup=c(rep("True Age",length(0:max(data$Age))),rep("Apparent Age",length(0:max(data$Age)))))%>%
+      mutate(AgeGroup=as.factor(AgeGroup))%>%
+      mutate(AgeGroup=relevel(AgeGroup,"True Age"))
+
+p<-ggplot(data,aes(x=Age,y=Length,colour=AgeGroup))+geom_point()+
+  geom_line(data=preds,aes(x=Age,y=Length,colour=AgeGroup,linetype=AgeGroup))+
+  scale_linetype_manual(name=NULL,values=c("solid","dashed"))+
+  scale_colour_manual(name=NULL,values=c("#3182bd","#ef8a62"))+
+  ylim(900,2000)+
+  theme_grey(base_family="Arial Narrow")+
+  theme(axis.line=element_line(size=0.15))+
+  theme(legend.position=c(0.8,0.2))+xlim(0,65)+
+  xlab("Age (yrs)")+ylab("Length (mm)")+
+  theme(plot.title = element_text(hjust=0,size=rel(1)))
+p
+```
+
+###Facet (b)
+Assuming that age underestimation is predominantly a function of length (Figure 3 b), faster and slower growing individuals would be affected differently, and growth zones accurate for a variable portion of total lifespan. To illustrate this, the von Bertalanffy growth curve for New Zealand porbeagle sharks was plotted with *k* varying from 0.05 to 0.175 in increments of 0.025. Ages > 88% of  $L_\infty$ (based on the analysis in Figure 3b) are shaded differently to show the most likely ages affected.
+
+```{r figS2, fig.width = 3.5, fig.height = 3.25, fig.align = 'center'}
+kvar<-seq(0.05,0.177,0.025)
+L0=751.7045
+VB<-Vectorize(function(k){L0+(Linf-L0)*(1-exp(-k*a))})
+Ages<-data.frame(VB(kvar))
+names(Ages)=kvar
+Ages$age=a
+Ages<-gather(Ages,key=K,value=length,-age)%>%
+  mutate(Underestimate=ifelse(length>0.88*Linf,"Affected ages","Unaffected ages"))
+
+p<-ggplot(Ages,aes(x=age,y=length,group=K,colour=Underestimate))+
+  geom_point(size=0.5)+geom_line(size=0.5)+theme(legend.position=c(0.8,0.2))+
+  xlab("Age (yrs)")+ylab("Length (mm)")+
+  scale_colour_manual(name=NULL,values=c("#ef8a62","#3182bd"))+
+  theme(axis.line=element_line(size=0.15))+
+  theme(plot.title = element_text(hjust=0,size=rel(1)))
+
+p
+```
+
+###Facet (c)
+The underestimation of age may have important implications for the estimation of mortality, particularly if using age-structured models that are fit to length-at-age data. If not accounted for, this apparent 'loss of age structure' would be indistinguishable from fishing mortality, potentially resulting in erroneous conclusions being drawn about the total mortality experienced by the population. To illustrate this, 300 individuals were randomly sampled from a simulated population as described above, and true and apparent age structures plotted for comparison. 
+
+```{r figS3, fig.width = 3.5, fig.height = 3.25, fig.align = 'center'}
+# Now simulate age structures
+data<-data_frame(`True Age`=unlist(mapply(rep,a,n)))%>%
+      mutate(`True Age` = ifelse(`True Age`==0, 0.0001, `True Age`)) %>% 
+      mutate(Length=Linf*(1-exp(-K*(`True Age`-t0)))+rnorm(sum(n),0,sigma))%>%
+      mutate(Selectivity=1-(`True Age`^-5)/(A50^-5+`True Age`^-5))%>%
+      na.omit()%>%
+      mutate(`Apparent Age`=ifelse(`True Age`<20,`True Age`,
+                                   20+(31.9-20)*(1-exp(-0.076*(`True Age`-20)))))%>%
+      sample_n(300,weight=Selectivity,replace=FALSE)%>%
+      gather(key=AgeGroup,value=Age,-Selectivity,-Length)%>%
+      mutate(AgeGroup=as.factor(AgeGroup))%>%
+      mutate(AgeGroup=relevel(AgeGroup,"True Age"))
+
+p<-ggplot(data,aes(x=Age,fill=AgeGroup))+geom_histogram(bins=30)+
+  theme(legend.position=c(0.8,0.8))+
+  scale_fill_manual(name=NULL,values=c("#3182bd","#ef8a62"))+
+  theme(axis.line=element_line(size=0.15))+
+  xlim(0,65)+
+  xlab("Age (yrs)")+ylab("Numbers")+
+  theme(plot.title = element_text(hjust=0,size=rel(1)))
+
+p
+```
+
+###Facet (d)
+Bias in parameters such as longevity may also influence demographic analyses. Direct estimates of natural mortality, *M* are typically unavailable for fish stocks, so this quantity is often calculated using life history invariant relationships based on longevity. To illustrate this, a simple demographic analysis using an age structured Leslie matrix [@caswell_matrix_2001] was undertaken where *M* was again approximated using the Hoenig method above as $M = 4.3/A_{Max}$. The projection matrix, **A**, was given by: 
+$$\begin{bmatrix}
+f_0 & f_1 & f_2 & ... & f_{a-1}\\ 
+s_1 & 0 & 0 & 0 & 0\\ 
+0 & s_2 & 0 & 0 & 0\\ 
+0 & 0 & ... & 0 & 0\\ 
+0 & 0 & 0 & s_{a-1}& 0
+\end{bmatrix}$$ where $s_a$ and $f_a$ are age-specific values of survival and fecundity in a birth-pulse population with a pre-breeding census, and where annual survival is assumed to be constant and calculated as $s_a = e^{-M}$. Age-specific fecundity (females only) was calculated as $f_a = F_a s_a$, where the number of female pups at any given age, $F_a$ is calculated as
+$$ F_a = \begin{cases}
+ & \text{ if } a<A_{Mat}, \quad 0\\ 
+ & \text{ if } a\geq A_{Mat}, \quad F/2/R))) 
+\end{cases}$$
+were $A_{Mat}$ is age at maturity (plus one year to account for the the duration of the reproductive cycle), and where *F* is average fecundity, divided by the sex ratio, and frequency of reproduction in years, *R*. The instantaneous rate of population growth, $\lambda$ was obtained as the real component of the dominant eigenvalue of **A**. Population doubling time was then calculated as $$t_2 = log_{\lambda}2$$ The Leslie matrix was run with both the true longevity and appararent longevity of New Zealand porbeagle sharks (Table S1) while keeping all other parameters the same. To illustrate the sensitivity of the model to changes in maximum age, relative population size was projected forward exponentially for 22 years (the population doubling time when using the apparent longevity). 
+
+
+```{r figS4, fig.width = 3.5, fig.height = 3.25, fig.align = 'center'}
+# Now do a demographic analysis using Leslie matrix
+leslie.matrix<-function(Amax,Amat50,pups,rcyc){
+  Age<-seq(0,Amax,1)
+  k<-length(Age)
+  M<-4.3/Amax
+  px<-exp(-M)
+  fx<-array(0,k)
+  fx[which(Age>=(Amat50+(rcyc-1)))]=pups/2/rcyc
+  fx<-fx*px
+  A <- matrix(0, nrow = k, ncol = k)
+  A[row(A) == col(A) + 1] <- px[-k]
+  A[1, ] <- fx
+  class(A) <- "leslie.matrix"
+return(A)
+}
+
+
+# Leslie matrices
+A<-leslie.matrix(Amax, Amat50, pups, Freq)
+A1<-leslie.matrix(38, Amat50, pups, Freq)
+
+# Lambda
+true.lambda<-eigen(A)$values[1]%>%Re
+apparent.lambda<-eigen(A1)$values[1]%>%Re
+
+# Population doubling time
+true.t2<-log(2,true.lambda)
+apparent.t2<-log(2,apparent.lambda)
+
+data3<-data_frame(Year=0:ceiling(max(c(true.t2,apparent.t2))),
+                  `True Age`=cumprod(c(1,rep(true.lambda,ceiling(max(c(true.t2,apparent.t2)))))),
+                  `Apparent Age`=cumprod(c(1,rep(apparent.lambda,ceiling(max(c(true.t2,apparent.t2)))))))%>%
+       gather(value=`Population Size`,key=AgeGroup,-Year)%>%
+        mutate(AgeGroup=relevel(as.factor(AgeGroup),"True Age"))%>%
+        mutate(AgeGroup=mapvalues(AgeGroup,from=c("True Age","Apparent Age"),to=c("65 years","38 years")))
+
+p<-ggplot(data3,aes(x=Year,y=`Population Size`,colour=AgeGroup))+geom_line() +
+  guides(colour=guide_legend(title=expression(paste(italic("A")[Max])))) +
+  theme(legend.position=c(0.2,0.8)) +
+  scale_colour_manual(name=NULL,values=c("#3182bd","#ef8a62")) +
+  theme(axis.line=element_line(size=0.15)) +
+  ylab("Relative population size") +
+  theme(plot.title = element_text(hjust=0,size=rel(1)))
+
+p
+```
+
+
+
+## References
