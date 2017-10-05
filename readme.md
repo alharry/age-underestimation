@@ -29,3 +29,5 @@ Repository structure:
 |--reports
 |--references
 ```
+**Erratum**  
+ - The scientific name for Thorny Skate (*Amblyraja radiata*) was mistakenly given as that for the Winter Skate (*Leucoraja ocellata*) throughout the paper and vice versa. 
