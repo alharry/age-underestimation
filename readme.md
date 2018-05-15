@@ -6,6 +6,8 @@ Published scientific manuscript:
 
 Harry AV. Evidence for systemic age underestimation in shark and ray ageing studies. Fish Fish. 2017;00:1–16. <https://doi.org/10.1111/faf.12243>
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.1246903.svg)](https://doi.org/10.5281/zenodo.1246903)
+
 ![](https://wol-prod-cdn.literatumonline.com/pb-assets/journal-banners/14672979-1501384690583.jpg)
 
 To reproduce analysis run `source("run_all.R")`. 
