@@ -14,22 +14,22 @@ To reproduce analysis run `source("run_all.R")`.
 
 Repository structure:
 ```
-|--data
+|--/data/
   |--data.csv
   |--data1.csv
   |--definitions.csv
-|--analysis
+|--/analysis/
   |--setup.R
   |--data prep.R
   |--summary.R
 |--run_all.R
-|--rmds
+|--/rmds/
   |--Manuscript.Rmd
   |--Tables.Rmd
   |--Figures.Rmd
   |--Supplementary material.Rmd
-|--reports
-|--references
+|--/reports/
+|--/references/
 ```
 **Erratum**  
  - The scientific name for Thorny Skate (*Amblyraja radiata*) was mistakenly given as that for the Winter Skate (*Leucoraja ocellata*) throughout the paper and vice versa. 
