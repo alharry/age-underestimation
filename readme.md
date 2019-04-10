@@ -14,22 +14,41 @@ To reproduce analysis run `source("run_all.R")`.
 
 Repository structure:
 ```
-|--/data/
-  |--data.csv
-  |--data1.csv
-  |--definitions.csv
-|--/analysis/
-  |--setup.R
-  |--data prep.R
-  |--summary.R
-|--run_all.R
-|--/rmds/
-  |--Manuscript.Rmd
-  |--Tables.Rmd
-  |--Figures.Rmd
-  |--Supplementary material.Rmd
-|--/reports/
-|--/references/
+/Users/avh/Google Drive/manuscripts/age-underestimation
+├── age-underestimation.Rproj
+├── analysis
+│   ├── data prep.R
+│   ├── setup.R
+│   └── summary.R
+├── data
+│   ├── data.csv
+│   ├── data1.csv
+│   └── definitions.csv
+├── readme.md
+├── references
+│   ├── Age underestimation extra.bib
+│   ├── Age underestimation.bib
+│   └── fish-and-fisheries.csl
+├── reports
+│   ├── Figures.pdf
+│   ├── Figures.tex
+│   ├── Figures_files
+│   ├── Manuscript.pdf
+│   ├── Manuscript.tex
+│   ├── Supplementary material 2.pdf
+│   ├── Supplementary material 2.tex
+│   ├── Supplementary material.pdf
+│   ├── Supplementary material.tex
+│   ├── Supplementary material_files
+│   ├── Tables.pdf
+│   └── Tables.tex
+├── rmds
+│   ├── Figures.Rmd
+│   ├── Manuscript.Rmd
+│   ├── Supplementary material 2.Rmd
+│   ├── Supplementary material.Rmd
+│   └── Tables.Rmd
+└── run_all.R
 ```
 **Erratum**  
  - The scientific name for Thorny Skate (*Amblyraja radiata*) was mistakenly given as that for the Winter Skate (*Leucoraja ocellata*) throughout the paper and vice versa. 
