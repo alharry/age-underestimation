@@ -14,7 +14,7 @@ To reproduce analysis run `source("run_all.R")`.
 
 Repository structure:
 ```
-/Users/avh/Google Drive/manuscripts/age-underestimation
+/
 ├── age-underestimation.Rproj
 ├── analysis
 │   ├── data prep.R
